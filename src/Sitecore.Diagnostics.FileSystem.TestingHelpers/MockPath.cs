@@ -1,11 +1,10 @@
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 {
     using System;
+    using System.Collections.Generic;
+    using System.Globalization;
     using System.IO;
+    using System.Linq;
 
     /// <summary>
     /// PathWrapper calls direct to Path but all this does is string manipulation so we can inherit directly from PathWrapper as no IO is done
@@ -15,7 +14,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
     {
         private readonly IMockFileDataAccessor mockFileDataAccessor;
 
-        private static readonly char[] InvalidAdditionalPathChars = { '*', '?' };
+        private static readonly char[] InvalidAdditionalPathChars = {'*', '?'};
 
         public MockPath(IMockFileDataAccessor mockFileDataAccessor)
         {
@@ -83,7 +82,9 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 
             var minPathSegments = isUnc
                 ? 2
-                : isUnixRooted ? 0 : 1;
+                : isUnixRooted
+                    ? 0
+                    : 1;
 
             var stack = new Stack<string>();
             foreach (var segment in pathSegments)
@@ -131,7 +132,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 
         private string[] GetSegments(params string[] paths)
         {
-            return paths.SelectMany(path => path.Split(new[] { DirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries)).ToArray();
+            return paths.SelectMany(path => path.Split(new[] {DirectorySeparatorChar}, StringSplitOptions.RemoveEmptyEntries)).ToArray();
         }
 
         public override string GetTempFileName()

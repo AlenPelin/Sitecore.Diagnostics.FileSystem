@@ -1,9 +1,8 @@
-using System.Security.AccessControl;
-
 namespace Sitecore.Diagnostics.FileSystem
 {
     using System;
     using System.IO;
+    using System.Security.AccessControl;
 
     [Serializable]
     public abstract class FileInfoBase : FileSystemInfoBase, IFile

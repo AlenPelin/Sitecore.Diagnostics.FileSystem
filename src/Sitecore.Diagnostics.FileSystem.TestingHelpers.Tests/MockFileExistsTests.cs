@@ -6,15 +6,16 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 
     using XFS = MockUnixSupport;
 
-    public class MockFileExistsTests {
+    public class MockFileExistsTests
+    {
         [Test]
         public void MockFile_Exists_ShouldReturnTrueForSamePath()
         {
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\something\demo.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\something\other.gif"), new MockFileData(new byte[] { 0x21, 0x58, 0x3f, 0xa9 }) }
+                {XFS.Path(@"c:\something\demo.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\something\other.gif"), new MockFileData(new byte[] {0x21, 0x58, 0x3f, 0xa9})}
             });
 
             var file = new MockFile(fileSystem);
@@ -32,8 +33,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\something\demo.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\something\other.gif"), new MockFileData(new byte[] { 0x21, 0x58, 0x3f, 0xa9 }) }
+                {XFS.Path(@"c:\something\demo.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\something\other.gif"), new MockFileData(new byte[] {0x21, 0x58, 0x3f, 0xa9})}
             });
 
             var file = new MockFile(fileSystem);
@@ -51,8 +52,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\something\demo.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\something\other.gif"), new MockFileData(new byte[] { 0x21, 0x58, 0x3f, 0xa9 }) }
+                {XFS.Path(@"c:\something\demo.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\something\other.gif"), new MockFileData(new byte[] {0x21, 0x58, 0x3f, 0xa9})}
             });
 
             var file = new MockFile(fileSystem);
@@ -78,8 +79,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\something\demo.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\something\other.gif"), new MockFileData(new byte[] { 0x21, 0x58, 0x3f, 0xa9 }) }
+                {XFS.Path(@"c:\something\demo.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\something\other.gif"), new MockFileData(new byte[] {0x21, 0x58, 0x3f, 0xa9})}
             });
 
             var file = new MockFile(fileSystem);

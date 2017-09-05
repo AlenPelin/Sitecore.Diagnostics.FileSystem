@@ -1,12 +1,12 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.AccessControl;
-using NUnit.Framework;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
+    using System.Security.AccessControl;
+
+    using NUnit.Framework;
 
     using XFS = MockUnixSupport;
 
@@ -39,17 +39,16 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             return new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.gif"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\b.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\c.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\a.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\b.gif"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\c.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\a\a.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\a\b.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\a\c.gif"), new MockFileData("Demo text content") },
+                {XFS.Path(@"c:\a.gif"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\b.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\c.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\a.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\b.gif"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\c.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\a\a.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\a\b.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\a\c.gif"), new MockFileData("Demo text content")},
             });
-
         }
 
         [Test]
@@ -100,12 +99,12 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             fileSystem.AddFile(XFS.Path(@"c:\a\a\c.gifx.xyz"), new MockFileData(string.Empty));
             fileSystem.AddFile(XFS.Path(@"c:\a\a\c.gifx\xyz"), new MockFileData(string.Empty));
             var expected = new[]
-                {
-                    XFS.Path(@"c:\a.gif"),
-                    XFS.Path(@"c:\a\b.gif"),
-                    XFS.Path(@"c:\a\a\c.gif"),
-                    additionalFilePath
-                };
+            {
+                XFS.Path(@"c:\a.gif"),
+                XFS.Path(@"c:\a\b.gif"),
+                XFS.Path(@"c:\a\a\c.gif"),
+                additionalFilePath
+            };
 
             // Act
             var result = fileSystem.Internals.Directory.GetFiles(XFS.Path(@"c:\"), "*.gif", SearchOption.AllDirectories);
@@ -124,10 +123,10 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             fileSystem.AddFile(XFS.Path(@"c:\a\a\c.gifx.xyz"), new MockFileData(string.Empty));
             fileSystem.AddFile(XFS.Path(@"c:\a\a\c.gifx"), new MockFileData(string.Empty));
             var expected = new[]
-                {
-                    XFS.Path(@"c:\a\b.gif"),
-                    additionalFilePath
-                };
+            {
+                XFS.Path(@"c:\a\b.gif"),
+                additionalFilePath
+            };
 
             // Act
             var result = fileSystem.Internals.Directory.GetFiles(XFS.Path(@"c:\a"), "*.gif", SearchOption.TopDirectoryOnly);
@@ -147,9 +146,9 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             fileSystem.AddFile(XFS.Path(@"c:\a\a\c.gif"), new MockFileData(string.Empty));
             fileSystem.AddFile(XFS.Path(@"c:\a\a\c.gifx"), new MockFileData(string.Empty));
             var expected = new[]
-                {
-                    additionalFilePath
-                };
+            {
+                additionalFilePath
+            };
 
             // Act
             var result = fileSystem.Internals.Directory.GetFiles(XFS.Path(@"c:\a"), "*.gi", SearchOption.AllDirectories);
@@ -164,15 +163,15 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.there.are.dots.in.this.filename.gif"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\b.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\c.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\a.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\b.gif"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\c.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\a\a.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\a\b.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\a\c.gif"), new MockFileData("Demo text content") },
+                {XFS.Path(@"c:\a.there.are.dots.in.this.filename.gif"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\b.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\c.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\a.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\b.gif"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\c.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\a\a.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\a\b.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\a\c.gif"), new MockFileData("Demo text content")},
             });
             var expected = new[]
             {
@@ -185,7 +184,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var result = fileSystem.Internals.Directory.GetFiles(XFS.Path(@"c:\"), "*.gif", SearchOption.AllDirectories);
 
             // Assert
-            Assert.That(result, Is.EquivalentTo( expected));
+            Assert.That(result, Is.EquivalentTo(expected));
         }
 
         [Test]
@@ -194,8 +193,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.1#.pdf"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\b\b #1.txt"), new MockFileData("Demo text content") }
+                {XFS.Path(@"c:\a.1#.pdf"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\b\b #1.txt"), new MockFileData("Demo text content")}
             });
             var expected = new[]
             {
@@ -215,7 +214,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             // Arrange
             var fileSystem = SetupFileSystem();
-            var expected = new[] { XFS.Path(@"c:\a.gif") };
+            var expected = new[] {XFS.Path(@"c:\a.gif")};
 
             // Act
             var result = fileSystem.Internals.Directory.GetFiles(XFS.Path(@"c:\"), "*.gif", SearchOption.TopDirectoryOnly);
@@ -229,7 +228,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             string path = XFS.Path(@"c:\something\demo.txt");
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { path, new MockFileData("Demo text content") }
+                {path, new MockFileData("Demo text content")}
             });
 
             // Act
@@ -343,7 +342,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\foo\bar.txt"), new MockFileData("Demo text content") }
+                {XFS.Path(@"c:\foo\bar.txt"), new MockFileData("Demo text content")}
             });
 
             // Act
@@ -359,7 +358,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\foo\bar.txt"), new MockFileData("Demo text content") }
+                {XFS.Path(@"c:\foo\bar.txt"), new MockFileData("Demo text content")}
             });
 
             // Act
@@ -375,7 +374,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\foo\bar.txt"), new MockFileData("Demo text content") }
+                {XFS.Path(@"c:\foo\bar.txt"), new MockFileData("Demo text content")}
             });
 
             // Act
@@ -391,7 +390,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\foo\bar.txt"), new MockFileData("Demo text content") }
+                {XFS.Path(@"c:\foo\bar.txt"), new MockFileData("Demo text content")}
             });
 
             // Act
@@ -407,8 +406,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\foo\bar.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\baz.txt"), new MockFileData("Demo text content") }
+                {XFS.Path(@"c:\foo\bar.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\baz.txt"), new MockFileData("Demo text content")}
             });
 
             // Act
@@ -424,7 +423,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\foo\bar.txt"), new MockFileData("Demo text content") }
+                {XFS.Path(@"c:\foo\bar.txt"), new MockFileData("Demo text content")}
             });
             fileSystem.Internals.Directory.CreateDirectory(XFS.Path(@"c:\bar"));
 
@@ -484,7 +483,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\foo.txt"), new MockFileData("Demo text content") }
+                {XFS.Path(@"c:\foo.txt"), new MockFileData("Demo text content")}
             });
 
             // Act
@@ -502,7 +501,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\foo\"), new MockDirectoryData() }
+                {XFS.Path(@"c:\foo\"), new MockDirectoryData()}
             });
 
             // Act/Assert
@@ -516,7 +515,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\foo.txt"), new MockFileData("Demo text content") }
+                {XFS.Path(@"c:\foo.txt"), new MockFileData("Demo text content")}
             });
 
             // Act
@@ -532,7 +531,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\foo\"), new MockDirectoryData() }
+                {XFS.Path(@"c:\foo\"), new MockDirectoryData()}
             });
 
             // Act
@@ -588,7 +587,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\bar\foo.txt"), new MockFileData("Demo text content") }
+                {XFS.Path(@"c:\bar\foo.txt"), new MockFileData("Demo text content")}
             });
 
             // Act
@@ -604,7 +603,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\bar\foo.txt"), new MockFileData("Demo text content") }
+                {XFS.Path(@"c:\bar\foo.txt"), new MockFileData("Demo text content")}
             });
 
             // Act
@@ -620,7 +619,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\bar\foo.txt"), new MockFileData("Demo text content") }
+                {XFS.Path(@"c:\bar\foo.txt"), new MockFileData("Demo text content")}
             });
 
             var ex = Assert.Throws<DirectoryNotFoundException>(() => fileSystem.Internals.Directory.Delete(XFS.Path(@"c:\baz")));
@@ -634,8 +633,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\bar\foo.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\bar\baz.txt"), new MockFileData("Demo text content") }
+                {XFS.Path(@"c:\bar\foo.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\bar\baz.txt"), new MockFileData("Demo text content")}
             });
 
             var ex = Assert.Throws<IOException>(() => fileSystem.Internals.Directory.Delete(XFS.Path(@"c:\bar")));
@@ -649,8 +648,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\bar\foo.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\bar\bar2\foo.txt"), new MockFileData("Demo text content") }
+                {XFS.Path(@"c:\bar\foo.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\bar\bar2\foo.txt"), new MockFileData("Demo text content")}
             });
 
             // Act
@@ -665,11 +664,11 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         public void MockDirectory_GetFileSystemEntries_Returns_Files_And_Directories()
         {
             string testPath = XFS.Path(@"c:\foo\bar.txt");
-            string testDir =  XFS.Path(@"c:\foo\bar\");
+            string testDir = XFS.Path(@"c:\foo\bar\");
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { testPath, new MockFileData("Demo text content") },
-                { testDir,  new MockDirectoryData() }
+                {testPath, new MockFileData("Demo text content")},
+                {testDir, new MockDirectoryData()}
             });
 
             var entries = fileSystem.Internals.Directory.GetFileSystemEntries(XFS.Path(@"c:\foo")).OrderBy(k => k);
@@ -707,8 +706,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             string testDir = XFS.Path(@"c:\foo\bar\");
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { testPath, new MockFileData("Demo text content") },
-                { testDir,  new MockDirectoryData() }
+                {testPath, new MockFileData("Demo text content")},
+                {testDir, new MockDirectoryData()}
             });
 
             var entries = fileSystem.Internals.Directory.GetFiles(XFS.Path(@"c:\foo")).OrderBy(k => k);
@@ -776,15 +775,15 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             string testPath = XFS.Path(@"c:\foo..r\bar.txt");
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
-                {
-                    { testPath, new MockFileData(string.Empty) }
-                });
+            {
+                {testPath, new MockFileData(string.Empty)}
+            });
 
             // Act
             var actualResult = fileSystem.Internals.Directory.GetFiles(XFS.Path(@"c:\"), @"foo..r\*");
 
             // Assert
-            Assert.That(actualResult, Is.EquivalentTo(new [] { testPath }));
+            Assert.That(actualResult, Is.EquivalentTo(new[] {testPath}));
         }
 
         [TestCase(@"""")]
@@ -809,7 +808,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             string testDir = XFS.Path(@"c:\foo\bar\");
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { testDir,  new MockDirectoryData() }
+                {testDir, new MockDirectoryData()}
             });
 
             Assert.AreEqual(XFS.Path("C:\\"), fileSystem.Internals.Directory.GetDirectoryRoot(XFS.Path(@"C:\foo\bar")));
@@ -819,11 +818,11 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         public void MockDirectory_GetLogicalDrives_Returns_LogicalDrives()
         {
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
-                {
-                    {XFS.Path(@"c:\foo\bar\"), new MockDirectoryData()},
-                    {XFS.Path(@"c:\foo\baz\"), new MockDirectoryData()},
-                    {XFS.Path(@"d:\bash\"), new MockDirectoryData()},
-                });
+            {
+                {XFS.Path(@"c:\foo\bar\"), new MockDirectoryData()},
+                {XFS.Path(@"c:\foo\baz\"), new MockDirectoryData()},
+                {XFS.Path(@"d:\bash\"), new MockDirectoryData()},
+            });
 
             var drives = fileSystem.Internals.Directory.GetLogicalDrives();
 
@@ -845,8 +844,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"A:\folder1\folder2\folder3\file.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"A:\folder1\folder4\file2.txt"), new MockFileData("Demo text content 2") },
+                {XFS.Path(@"A:\folder1\folder2\folder3\file.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"A:\folder1\folder4\file2.txt"), new MockFileData("Demo text content 2")},
             });
 
             var directories = fileSystem.Internals.Directory.GetDirectories(XFS.Path(@"A:\folder1")).ToArray();
@@ -875,7 +874,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var actualResult = fileSystem.Internals.Directory.GetDirectories(XFS.Path(@"c:\Folder\"), "*.foo");
 
             // Assert
-            Assert.That(actualResult, Is.EquivalentTo(new []{XFS.Path(@"C:\Folder\.foo\"), XFS.Path(@"C:\Folder\foo.foo\")}));
+            Assert.That(actualResult, Is.EquivalentTo(new[] {XFS.Path(@"C:\Folder\.foo\"), XFS.Path(@"C:\Folder\foo.foo\")}));
         }
 
         [Test]
@@ -893,7 +892,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var actualResult = fileSystem.Internals.Directory.GetDirectories(XFS.Path(@"c:\Folder\"), "*.foo", SearchOption.AllDirectories);
 
             // Assert
-            Assert.That(actualResult, Is.EquivalentTo(new[] { XFS.Path(@"C:\Folder\.foo\"), XFS.Path(@"C:\Folder\foo.foo\"), XFS.Path(@"C:\Folder\.foo\.foo\") }));
+            Assert.That(actualResult, Is.EquivalentTo(new[] {XFS.Path(@"C:\Folder\.foo\"), XFS.Path(@"C:\Folder\foo.foo\"), XFS.Path(@"C:\Folder\.foo\.foo\")}));
         }
 
         [Test]
@@ -902,15 +901,15 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.gif"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\b.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\c.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\a.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\b.gif"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\c.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\a\a.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\a\b.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\a\c.gif"), new MockFileData("Demo text content") },
+                {XFS.Path(@"c:\a.gif"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\b.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\c.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\a.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\b.gif"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\c.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\a\a.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\a\b.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\a\c.gif"), new MockFileData("Demo text content")},
             });
 
             // Act
@@ -925,8 +924,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"A:\folder1\folder2\folder3\file.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"A:\folder1\folder4\file2.txt"), new MockFileData("Demo text content 2") },
+                {XFS.Path(@"A:\folder1\folder2\folder3\file.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"A:\folder1\folder4\file2.txt"), new MockFileData("Demo text content 2")},
             });
 
             var directories = fileSystem.Internals.Directory.EnumerateDirectories(XFS.Path(@"A:\folder1")).ToArray();
@@ -955,7 +954,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var actualResult = fileSystem.Internals.Directory.EnumerateDirectories(XFS.Path(@"c:\Folder\"), "*.foo");
 
             // Assert
-            Assert.That(actualResult, Is.EquivalentTo(new[] { XFS.Path(@"C:\Folder\.foo\"), XFS.Path(@"C:\Folder\foo.foo\") }));
+            Assert.That(actualResult, Is.EquivalentTo(new[] {XFS.Path(@"C:\Folder\.foo\"), XFS.Path(@"C:\Folder\foo.foo\")}));
         }
 
         [Test]
@@ -973,7 +972,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var actualResult = fileSystem.Internals.Directory.EnumerateDirectories(XFS.Path(@"c:\Folder\"), "*.foo", SearchOption.AllDirectories);
 
             // Assert
-            Assert.That(actualResult, Is.EquivalentTo(new[] { XFS.Path(@"C:\Folder\.foo\"), XFS.Path(@"C:\Folder\foo.foo\"), XFS.Path(@"C:\Folder\.foo\.foo\") }));
+            Assert.That(actualResult, Is.EquivalentTo(new[] {XFS.Path(@"C:\Folder\.foo\"), XFS.Path(@"C:\Folder\foo.foo\"), XFS.Path(@"C:\Folder\.foo\.foo\")}));
         }
 
         [Test]
@@ -982,15 +981,15 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.gif"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\b.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\c.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\a.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\b.gif"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\c.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\a\a.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\a\b.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\a\c.gif"), new MockFileData("Demo text content") },
+                {XFS.Path(@"c:\a.gif"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\b.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\c.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\a.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\b.gif"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\c.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\a\a.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\a\b.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\a\c.gif"), new MockFileData("Demo text content")},
             });
 
             // Act
@@ -1002,13 +1001,13 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 
         public static IEnumerable<object[]> GetPathsForMoving()
         {
-            yield return new object[] { @"a:\folder1\", @"A:\folder3\", "file.txt", @"folder2\file2.txt" };
-            yield return new object[] { @"A:\folder1\", @"A:\folder3\", "file.txt", @"folder2\file2.txt" };
-            yield return new object[] { @"a:\folder1\", @"a:\folder3\", "file.txt", @"folder2\file2.txt" };
-            yield return new object[] { @"A:\folder1\", @"a:\folder3\", "file.txt", @"folder2\file2.txt" };
-            yield return new object[] { @"A:\folder1\", @"a:\folder3\", "file.txt", @"Folder2\file2.txt" };
-            yield return new object[] { @"A:\folder1\", @"a:\folder3\", "file.txt", @"Folder2\fiLe2.txt" };
-            yield return new object[] { @"A:\folder1\", @"a:\folder3\", "folder444\\file.txt", @"Folder2\fiLe2.txt" };
+            yield return new object[] {@"a:\folder1\", @"A:\folder3\", "file.txt", @"folder2\file2.txt"};
+            yield return new object[] {@"A:\folder1\", @"A:\folder3\", "file.txt", @"folder2\file2.txt"};
+            yield return new object[] {@"a:\folder1\", @"a:\folder3\", "file.txt", @"folder2\file2.txt"};
+            yield return new object[] {@"A:\folder1\", @"a:\folder3\", "file.txt", @"folder2\file2.txt"};
+            yield return new object[] {@"A:\folder1\", @"a:\folder3\", "file.txt", @"Folder2\file2.txt"};
+            yield return new object[] {@"A:\folder1\", @"a:\folder3\", "file.txt", @"Folder2\fiLe2.txt"};
+            yield return new object[] {@"A:\folder1\", @"a:\folder3\", "folder444\\file.txt", @"Folder2\fiLe2.txt"};
         }
 
         [Test]
@@ -1032,8 +1031,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(sourceDirName + filePathOne) , new MockFileData("aaa") },
-                { XFS.Path(sourceDirName + filePathTwo) , new MockFileData("bbb") },
+                {XFS.Path(sourceDirName + filePathOne), new MockFileData("aaa")},
+                {XFS.Path(sourceDirName + filePathTwo), new MockFileData("bbb")},
             });
 
             // Act
@@ -1055,8 +1054,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             const string filePathTwo = "file2.txt";
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(sourceDirName + filePathOne) , new MockFileData("aaa") },
-                { XFS.Path(sourceDirName + filePathTwo) , new MockFileData("bbb") },
+                {XFS.Path(sourceDirName + filePathOne), new MockFileData("aaa")},
+                {XFS.Path(sourceDirName + filePathTwo), new MockFileData("bbb")},
             });
 
             var sourceDirectoryInfo = fileSystem.DirectoryInfo.FromDirectoryName(sourceDirName);
@@ -1071,7 +1070,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         }
 
         [Test]
-        public void MockDirectory_GetCurrentDirectory_ShouldReturnValueFromFileSystemConstructor() {
+        public void MockDirectory_GetCurrentDirectory_ShouldReturnValueFromFileSystemConstructor()
+        {
             string directory = XFS.Path(@"D:\folder1\folder2");
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>(), directory);
 
@@ -1082,7 +1082,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 
 
         [Test]
-        public void MockDirectory_GetCurrentDirectory_ShouldReturnDefaultPathWhenNotSet() {
+        public void MockDirectory_GetCurrentDirectory_ShouldReturnDefaultPathWhenNotSet()
+        {
             string directory = Path.GetTempPath();
             var fileSystem = new MockFileSystem();
 
@@ -1092,7 +1093,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         }
 
         [Test]
-        public void MockDirectory_SetCurrentDirectory_ShouldChangeCurrentDirectory() {
+        public void MockDirectory_SetCurrentDirectory_ShouldChangeCurrentDirectory()
+        {
             string directory = XFS.Path(@"D:\folder1\folder2");
             var fileSystem = new MockFileSystem();
 
@@ -1137,7 +1139,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var fileSystem = new MockFileSystem();
 
             // Act
-            var actualResult =  fileSystem.Internals.Directory.GetParent(XFS.Path(@"c:\directory\does\not\exist"));
+            var actualResult = fileSystem.Internals.Directory.GetParent(XFS.Path(@"c:\directory\does\not\exist"));
 
             // Assert
             Assert.IsNotNull(actualResult);
@@ -1180,9 +1182,9 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             get
             {
-                yield return new [] { XFS.Path(@"c:\a"), XFS.Path(@"c:\") };
-                yield return new [] { XFS.Path(@"c:\a\b\c\d"), XFS.Path(@"c:\a\b\c") };
-                yield return new [] { XFS.Path(@"c:\a\b\c\d\"), XFS.Path(@"c:\a\b\c") };
+                yield return new[] {XFS.Path(@"c:\a"), XFS.Path(@"c:\")};
+                yield return new[] {XFS.Path(@"c:\a\b\c\d"), XFS.Path(@"c:\a\b\c")};
+                yield return new[] {XFS.Path(@"c:\a\b\c\d\"), XFS.Path(@"c:\a\b\c")};
             }
         }
 

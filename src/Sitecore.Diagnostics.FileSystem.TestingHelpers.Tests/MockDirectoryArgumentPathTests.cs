@@ -1,11 +1,11 @@
-using System.Collections.Generic;
-using System.Security.AccessControl;
-using NUnit.Framework;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
+    using System.Security.AccessControl;
+
+    using NUnit.Framework;
 
     public class MockDirectoryArgumentPathTests
     {

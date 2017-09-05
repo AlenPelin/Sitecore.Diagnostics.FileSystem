@@ -1,12 +1,12 @@
-using System.Collections.Generic;
-
-using NUnit.Framework;
 using XFS = Sitecore.Diagnostics.FileSystem.TestingHelpers.MockUnixSupport;
 
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
+
+    using NUnit.Framework;
 
     public class MockFileWriteAllBytesTests
     {
@@ -16,7 +16,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem();
             string path = XFS.Path(@"c:\something\file.txt");
-            var fileContent = new byte[] { 1, 2, 3, 4 };
+            var fileContent = new byte[] {1, 2, 3, 4};
 
             // Act
             TestDelegate action = () => fileSystem.Internals.File.WriteAllBytes(path, fileContent);
@@ -31,7 +31,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             string path = XFS.Path(@"c:\something\demo.txt");
             var fileSystem = new MockFileSystem();
-            var fileContent = new byte[] { 1, 2, 3, 4 };
+            var fileContent = new byte[] {1, 2, 3, 4};
             fileSystem.AddDirectory(@"c:\something");
 
             // Act
@@ -49,13 +49,13 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             string path = XFS.Path(@"c:\something\demo.txt");
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
-                {
-                    { path, new MockFileData("this is hidden") },
-                });
+            {
+                {path, new MockFileData("this is hidden")},
+            });
             fileSystem.Internals.File.SetAttributes(path, FileAttributes.Hidden);
 
             // Act
-            TestDelegate action = () => fileSystem.Internals.File.WriteAllBytes(path, new byte[] { 123 });
+            TestDelegate action = () => fileSystem.Internals.File.WriteAllBytes(path, new byte[] {123});
 
             // Assert
             Assert.Throws<UnauthorizedAccessException>(action, "Access to the path '{0}' is denied.", path);
@@ -68,7 +68,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var fileSystem = new MockFileSystem();
 
             // Act
-            TestDelegate action = () => fileSystem.Internals.File.WriteAllBytes("<<<", new byte[] { 123 });
+            TestDelegate action = () => fileSystem.Internals.File.WriteAllBytes("<<<", new byte[] {123});
 
             // Assert
             Assert.Throws<ArgumentException>(action);
@@ -81,7 +81,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var fileSystem = new MockFileSystem();
 
             // Act
-            TestDelegate action = () => fileSystem.Internals.File.WriteAllBytes(null, new byte[] { 123 });
+            TestDelegate action = () => fileSystem.Internals.File.WriteAllBytes(null, new byte[] {123});
 
             // Assert
             var exception = Assert.Throws<ArgumentNullException>(action);

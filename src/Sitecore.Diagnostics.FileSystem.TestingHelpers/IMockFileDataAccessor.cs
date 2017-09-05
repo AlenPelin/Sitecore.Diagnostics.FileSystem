@@ -1,7 +1,7 @@
-using System.Collections.Generic;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// Provides access to the file system storage.
     /// </summary>
@@ -49,7 +49,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
         IEnumerable<string> AllDirectories { get; }
 
         DirectoryBase Directory { get; }
-        IFileInfoFactory FileInfo {get; }
+        IFileInfoFactory FileInfo { get; }
         PathBase Path { get; }
         IDirectoryInfoFactory DirectoryInfo { get; }
         IDriveInfoFactory DriveInfo { get; }

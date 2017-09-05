@@ -1,27 +1,27 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using NUnit.Framework;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
+    using System.Text;
+
+    using NUnit.Framework;
 
     public class MockFileArgumentPathTests
     {
         private static IEnumerable<Action<FileBase>> GetFileSystemActionsForArgumentNullException()
         {
-            yield return fs => fs.AppendAllLines(null, new[] { "does not matter" });
-            yield return fs => fs.AppendAllLines(null, new[] { "does not matter" }, Encoding.ASCII);
+            yield return fs => fs.AppendAllLines(null, new[] {"does not matter"});
+            yield return fs => fs.AppendAllLines(null, new[] {"does not matter"}, Encoding.ASCII);
             yield return fs => fs.AppendAllText(null, "does not matter");
             yield return fs => fs.AppendAllText(null, "does not matter", Encoding.ASCII);
             yield return fs => fs.AppendText(null);
-            yield return fs => fs.WriteAllBytes(null, new byte[] { 0 });
-            yield return fs => fs.WriteAllLines(null, new[] { "does not matter" });
-            yield return fs => fs.WriteAllLines(null, new[] { "does not matter" }, Encoding.ASCII);
-            yield return fs => fs.WriteAllLines(null, new[] { "does not matter" }.ToArray());
-            yield return fs => fs.WriteAllLines(null, new[] { "does not matter" }.ToArray(), Encoding.ASCII);
+            yield return fs => fs.WriteAllBytes(null, new byte[] {0});
+            yield return fs => fs.WriteAllLines(null, new[] {"does not matter"});
+            yield return fs => fs.WriteAllLines(null, new[] {"does not matter"}, Encoding.ASCII);
+            yield return fs => fs.WriteAllLines(null, new[] {"does not matter"}.ToArray());
+            yield return fs => fs.WriteAllLines(null, new[] {"does not matter"}.ToArray(), Encoding.ASCII);
             yield return fs => fs.Create(null);
             yield return fs => fs.Delete(null);
             yield return fs => fs.GetCreationTime(null);

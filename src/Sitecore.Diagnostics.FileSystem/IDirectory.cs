@@ -1,10 +1,9 @@
-using System.Collections.Generic;
-using System.Security.AccessControl;
-
 namespace Sitecore.Diagnostics.FileSystem
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
+    using System.Security.AccessControl;
 
     public interface IDirectory : IFileSystemEntry
     {
@@ -36,8 +35,10 @@ namespace Sitecore.Diagnostics.FileSystem
         IFileSystemEntry[] GetFileSystemInfos();
         IFileSystemEntry[] GetFileSystemInfos(string searchPattern);
         IFileSystemEntry[] GetFileSystemInfos(string searchPattern, SearchOption searchOption);
+
         [Obsolete]
         void MoveTo(string destDirName);
+
         void SetAccessControl(DirectorySecurity directorySecurity);
     }
 }

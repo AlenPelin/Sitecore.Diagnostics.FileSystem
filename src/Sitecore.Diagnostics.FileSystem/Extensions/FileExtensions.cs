@@ -1,7 +1,6 @@
 namespace Sitecore.Diagnostics.FileSystem.Extensions
 {
     using System.IO;
-    using Sitecore.Diagnostics.FileSystem;
 
     using JetBrains.Annotations;
 

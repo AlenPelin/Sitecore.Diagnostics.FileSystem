@@ -1,8 +1,9 @@
-using System.Collections.Generic;
-using NUnit.Framework; 
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
+    using System.Collections.Generic;
+
+    using NUnit.Framework;
+
     [TestFixture]
     public class MockFileInfoFactoryTests
     {
@@ -12,8 +13,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { @"c:\a.txt", new MockFileData("Demo text content") },
-                { @"c:\a\b\c.txt", new MockFileData("Demo text content") },
+                {@"c:\a.txt", new MockFileData("Demo text content")},
+                {@"c:\a\b\c.txt", new MockFileData("Demo text content")},
             });
             var fileInfoFactory = new MockFileInfoFactory(fileSystem);
 
@@ -30,8 +31,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { @"c:\a.txt", new MockFileData("Demo text content") },
-                { @"c:\a\b\c.txt", new MockFileData("Demo text content") },
+                {@"c:\a.txt", new MockFileData("Demo text content")},
+                {@"c:\a\b\c.txt", new MockFileData("Demo text content")},
             });
             var fileInfoFactory = new MockFileInfoFactory(fileSystem);
 

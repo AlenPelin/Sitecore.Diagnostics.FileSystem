@@ -1,8 +1,8 @@
-using NUnit.Framework;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
     using System;
+
+    using NUnit.Framework;
 
     [TestFixture]
     public class MockFileGetCreationTimeTests

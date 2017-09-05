@@ -2,7 +2,6 @@ namespace Sitecore.Diagnostics.FileSystem.Extensions
 {
     using System.Collections.Generic;
     using System.IO;
-    using Sitecore.Diagnostics.FileSystem;
     using System.Text.RegularExpressions;
 
     using JetBrains.Annotations;

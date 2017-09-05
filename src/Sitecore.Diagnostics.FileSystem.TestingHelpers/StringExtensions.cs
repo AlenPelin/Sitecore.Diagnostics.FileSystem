@@ -1,11 +1,10 @@
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Text;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 {
     using System;
+    using System.Collections.Generic;
+    using System.Diagnostics.Contracts;
     using System.IO;
+    using System.Text;
 
     internal static class StringExtensions
     {

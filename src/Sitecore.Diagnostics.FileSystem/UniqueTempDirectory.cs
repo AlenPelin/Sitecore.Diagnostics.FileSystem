@@ -3,9 +3,9 @@ namespace Sitecore.Diagnostics.FileSystem
     using System;
     using System.Collections.Generic;
     using System.IO;
+    using System.Security.AccessControl;
 
     using Sitecore.Diagnostics.FileSystem.Extensions;
-    using System.Security.AccessControl;
 
     public class UniqueTempDirectory : IUniqueTempDirectory
     {

@@ -1,7 +1,7 @@
-using NUnit.Framework;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
+    using NUnit.Framework;
+
     [TestFixture]
     public class MockUnixSupportTests
     {

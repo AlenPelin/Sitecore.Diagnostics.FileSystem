@@ -1,11 +1,11 @@
-using System.Collections.Generic;
-using System.Globalization;
-using NUnit.Framework;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
     using System;
+    using System.Collections.Generic;
+    using System.Globalization;
     using System.IO;
+
+    using NUnit.Framework;
 
     using XFS = MockUnixSupport;
 
@@ -18,8 +18,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\b\c.txt"), new MockFileData("Demo text content") },
+                {XFS.Path(@"c:\a.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\b\c.txt"), new MockFileData("Demo text content")},
             });
             var fileInfo = new MockFileInfo(fileSystem, XFS.Path(@"c:\a.txt"));
 
@@ -36,8 +36,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.txt"), new MockFileData("Demo text content") },
-                { XFS.Path(@"c:\a\b\c.txt"), new MockFileData("Demo text content") },
+                {XFS.Path(@"c:\a.txt"), new MockFileData("Demo text content")},
+                {XFS.Path(@"c:\a\b\c.txt"), new MockFileData("Demo text content")},
             });
             var fileInfo = new MockFileInfo(fileSystem, XFS.Path(@"c:\foo.txt"));
 
@@ -55,8 +55,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             const string fileContent = "Demo text content";
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.txt"), new MockFileData(fileContent) },
-                { XFS.Path(@"c:\a\b\c.txt"), new MockFileData(fileContent) },
+                {XFS.Path(@"c:\a.txt"), new MockFileData(fileContent)},
+                {XFS.Path(@"c:\a\b\c.txt"), new MockFileData(fileContent)},
             });
             var fileInfo = new MockFileInfo(fileSystem, XFS.Path(@"c:\a.txt"));
 
@@ -74,8 +74,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             const string fileContent = "Demo text content";
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.txt"), new MockFileData(fileContent) },
-                { XFS.Path(@"c:\a\b\c.txt"), new MockFileData(fileContent) },
+                {XFS.Path(@"c:\a.txt"), new MockFileData(fileContent)},
+                {XFS.Path(@"c:\a\b\c.txt"), new MockFileData(fileContent)},
             });
             var fileInfo = new MockFileInfo(fileSystem, XFS.Path(@"c:\foo.txt"));
 
@@ -90,10 +90,10 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             // Arrange
             var creationTime = DateTime.Now.AddHours(-4);
-            var fileData = new MockFileData("Demo text content") { CreationTime = creationTime };
+            var fileData = new MockFileData("Demo text content") {CreationTime = creationTime};
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.txt"), fileData }
+                {XFS.Path(@"c:\a.txt"), fileData}
             });
             var fileInfo = new MockFileInfo(fileSystem, XFS.Path(@"c:\a.txt"));
 
@@ -109,10 +109,10 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             // Arrange
             var creationTime = DateTime.Now.AddHours(-4);
-            var fileData = new MockFileData("Demo text content") { CreationTime = creationTime };
+            var fileData = new MockFileData("Demo text content") {CreationTime = creationTime};
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.txt"), fileData }
+                {XFS.Path(@"c:\a.txt"), fileData}
             });
             var fileInfo = new MockFileInfo(fileSystem, XFS.Path(@"c:\a.txt"));
 
@@ -130,10 +130,10 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             // Arrange
             var creationTime = DateTime.Now.AddHours(-4);
-            var fileData = new MockFileData("Demo text content") { CreationTime = creationTime };
+            var fileData = new MockFileData("Demo text content") {CreationTime = creationTime};
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.txt"), fileData }
+                {XFS.Path(@"c:\a.txt"), fileData}
             });
             var fileInfo = new MockFileInfo(fileSystem, XFS.Path(@"c:\a.txt"));
 
@@ -149,10 +149,10 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             // Arrange
             var creationTime = DateTime.Now.AddHours(-4);
-            var fileData = new MockFileData("Demo text content") { CreationTime = creationTime };
+            var fileData = new MockFileData("Demo text content") {CreationTime = creationTime};
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.txt"), fileData }
+                {XFS.Path(@"c:\a.txt"), fileData}
             });
             var fileInfo = new MockFileInfo(fileSystem, XFS.Path(@"c:\a.txt"));
 
@@ -171,7 +171,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var fileData = new MockFileData("Demo text content");
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.txt"), fileData }
+                {XFS.Path(@"c:\a.txt"), fileData}
             });
             var fileInfo = new MockFileInfo(fileSystem, XFS.Path(@"c:\a.txt"));
 
@@ -189,7 +189,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var fileData = new MockFileData("Demo text content") {Attributes = FileAttributes.ReadOnly};
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.txt"), fileData }
+                {XFS.Path(@"c:\a.txt"), fileData}
             });
             var fileInfo = new MockFileInfo(fileSystem, XFS.Path(@"c:\a.txt"));
 
@@ -207,7 +207,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var fileData = new MockFileData("Demo text content");
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.txt"), fileData }
+                {XFS.Path(@"c:\a.txt"), fileData}
             });
             var fileInfo = new MockFileInfo(fileSystem, XFS.Path(@"c:\a.txt"));
 
@@ -230,7 +230,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var fileData = new MockFileData("Demo text content");
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.txt"), fileData }
+                {XFS.Path(@"c:\a.txt"), fileData}
             });
             var fileInfo = new MockFileInfo(fileSystem, XFS.Path(@"c:\a.txt"));
             var bytesToAdd = new byte[] {65, 66, 67, 68, 69};
@@ -254,7 +254,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var fileData = new MockFileData("Demo text content");
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.txt"), fileData }
+                {XFS.Path(@"c:\a.txt"), fileData}
             });
             var fileInfo = new MockFileInfo(fileSystem, XFS.Path(@"c:\a.txt"));
 
@@ -278,7 +278,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var fileData = new MockFileData("Demo text content");
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.txt"), fileData }
+                {XFS.Path(@"c:\a.txt"), fileData}
             });
             var fileInfo = new MockFileInfo(fileSystem, XFS.Path(@"c:\a.txt"));
             fileInfo.Encrypt();
@@ -301,10 +301,10 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             // Arrange
             var lastAccessTime = DateTime.Now.AddHours(-4);
-            var fileData = new MockFileData("Demo text content") { LastAccessTime = lastAccessTime };
+            var fileData = new MockFileData("Demo text content") {LastAccessTime = lastAccessTime};
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.txt"), fileData }
+                {XFS.Path(@"c:\a.txt"), fileData}
             });
             var fileInfo = new MockFileInfo(fileSystem, XFS.Path(@"c:\a.txt"));
 
@@ -320,10 +320,10 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             // Arrange
             var lastAccessTime = DateTime.Now.AddHours(-4);
-            var fileData = new MockFileData("Demo text content") { LastAccessTime = lastAccessTime };
+            var fileData = new MockFileData("Demo text content") {LastAccessTime = lastAccessTime};
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.txt"), fileData }
+                {XFS.Path(@"c:\a.txt"), fileData}
             });
             var fileInfo = new MockFileInfo(fileSystem, XFS.Path(@"c:\a.txt"));
 
@@ -340,10 +340,10 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             // Arrange
             var lastWriteTime = DateTime.Now.AddHours(-4);
-            var fileData = new MockFileData("Demo text content") { LastWriteTime = lastWriteTime };
+            var fileData = new MockFileData("Demo text content") {LastWriteTime = lastWriteTime};
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.txt"), fileData }
+                {XFS.Path(@"c:\a.txt"), fileData}
             });
             var fileInfo = new MockFileInfo(fileSystem, XFS.Path(@"c:\a.txt"));
 
@@ -359,10 +359,10 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             // Arrange
             var lastWriteTime = DateTime.Now.AddHours(-4);
-            var fileData = new MockFileData("Demo text content") { LastWriteTime = lastWriteTime };
+            var fileData = new MockFileData("Demo text content") {LastWriteTime = lastWriteTime};
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\a.txt"), fileData }
+                {XFS.Path(@"c:\a.txt"), fileData}
             });
             var fileInfo = new MockFileInfo(fileSystem, XFS.Path(@"c:\a.txt"));
 
@@ -431,7 +431,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             // Arrange
             var fileSystem = new MockFileSystem();
-            fileSystem.AddFile(XFS.Path(@"c:\temp\file.txt"), new MockFileData(new byte[] { 1, 2 }));
+            fileSystem.AddFile(XFS.Path(@"c:\temp\file.txt"), new MockFileData(new byte[] {1, 2}));
             var fileInfo = fileSystem.FileInfo.FromFileName(XFS.Path(@"c:\temp\file.txt"));
 
             // Act
@@ -441,7 +441,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
                 stream.Read(result, 0, 2);
             }
 
-            Assert.AreEqual(new byte[] { 1, 2 }, result);
+            Assert.AreEqual(new byte[] {1, 2}, result);
         }
 
         [Test]

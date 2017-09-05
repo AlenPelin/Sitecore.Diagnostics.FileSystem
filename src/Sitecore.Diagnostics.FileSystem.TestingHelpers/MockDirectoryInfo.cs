@@ -1,12 +1,11 @@
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Security.AccessControl;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 {
     using System;
+    using System.Collections.Generic;
+    using System.Globalization;
     using System.IO;
+    using System.Linq;
+    using System.Security.AccessControl;
 
     [Serializable]
     public class MockDirectoryInfo : DirectoryInfoBase
@@ -110,8 +109,10 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 
         public override DateTime LastAccessTimeUtc
         {
-            get {
-                if (MockFileData == null) throw new FileNotFoundException("File not found", directoryPath);
+            get
+            {
+                if (MockFileData == null)
+                    throw new FileNotFoundException("File not found", directoryPath);
                 return MockFileData.LastAccessTime.UtcDateTime;
             }
             set { throw new NotImplementedException(Properties.Resources.NOT_IMPLEMENTED_EXCEPTION); }
@@ -255,8 +256,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
         FileInfoBase[] ConvertStringsToFiles(IEnumerable<string> paths)
         {
             return paths
-                  .Select(mockFileDataAccessor.FileInfo.FromFileName)
-                  .ToArray();
+                .Select(mockFileDataAccessor.FileInfo.FromFileName)
+                .ToArray();
         }
 
         public override IFileSystemEntry[] GetFileSystemInfos()
@@ -286,18 +287,12 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 
         public override IDirectory Parent
         {
-            get
-            {
-                return mockFileDataAccessor.Directory.GetParent(directoryPath);
-            }
+            get { return mockFileDataAccessor.Directory.GetParent(directoryPath); }
         }
 
         public override IDirectory Root
         {
-            get
-            {
-                return new MockDirectoryInfo(mockFileDataAccessor, mockFileDataAccessor.Directory.GetDirectoryRoot(FullName));
-            }
+            get { return new MockDirectoryInfo(mockFileDataAccessor, mockFileDataAccessor.Directory.GetDirectoryRoot(FullName)); }
         }
 
         private string EnsurePathEndsWithDirectorySeparator(string path)

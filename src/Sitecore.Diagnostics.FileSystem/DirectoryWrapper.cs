@@ -1,10 +1,9 @@
-using System.Collections.Generic;
-using System.Security.AccessControl;
-
 namespace Sitecore.Diagnostics.FileSystem
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
+    using System.Security.AccessControl;
 
     [Serializable]
     public class DirectoryWrapper : DirectoryBase
@@ -196,9 +195,9 @@ namespace Sitecore.Diagnostics.FileSystem
 
         public override IEnumerable<string> EnumerateFiles(string path)
         {
-           return Directory.EnumerateFiles(path);
+            return Directory.EnumerateFiles(path);
         }
- 
+
         public override IEnumerable<string> EnumerateFiles(string path, string searchPattern)
         {
             return Directory.EnumerateFiles(path, searchPattern);

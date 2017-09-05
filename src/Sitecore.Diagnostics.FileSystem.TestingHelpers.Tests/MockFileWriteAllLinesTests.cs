@@ -1,14 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Text;
-using NUnit.Framework;
 using XFS = Sitecore.Diagnostics.FileSystem.TestingHelpers.MockUnixSupport;
 
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Globalization;
     using System.IO;
+    using System.Text;
+
+    using NUnit.Framework;
 
     public class MockFileWriteAllLinesTests
     {
@@ -22,7 +23,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
                 {
                     var fileSystem = new MockFileSystem();
                     fileSystem.AddDirectory(@"c:\something");
-                    var fileContentEnumerable = new List<string> { "first line", "second line", "third line", "fourth and last line" };
+                    var fileContentEnumerable = new List<string> {"first line", "second line", "third line", "fourth and last line"};
                     var fileContentArray = fileContentEnumerable.ToArray();
                     Action writeEnumberable = () => fileSystem.Internals.File.WriteAllLines(Path, fileContentEnumerable);
                     Action writeEnumberableUtf32 = () => fileSystem.Internals.File.WriteAllLines(Path, fileContentEnumerable, Encoding.UTF32);

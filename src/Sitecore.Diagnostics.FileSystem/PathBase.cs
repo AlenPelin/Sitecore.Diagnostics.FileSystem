@@ -7,8 +7,10 @@ namespace Sitecore.Diagnostics.FileSystem
     {
         public abstract char AltDirectorySeparatorChar { get; }
         public abstract char DirectorySeparatorChar { get; }
+
         [Obsolete("Please use GetInvalidPathChars or GetInvalidFileNameChars instead.")]
         public abstract char[] InvalidPathChars { get; }
+
         public abstract char PathSeparator { get; }
         public abstract char VolumeSeparatorChar { get; }
 

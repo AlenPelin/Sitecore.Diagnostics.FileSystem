@@ -1,9 +1,9 @@
-using NUnit.Framework;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
     using System.IO;
     using System.Runtime.Serialization.Formatters.Binary;
+
+    using NUnit.Framework;
 
     [TestFixture]
     public class FileSystemTests

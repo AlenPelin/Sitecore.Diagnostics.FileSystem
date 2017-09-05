@@ -1,10 +1,9 @@
-using System.Collections.Generic;
-using System.Security.AccessControl;
-
 namespace Sitecore.Diagnostics.FileSystem
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
+    using System.Security.AccessControl;
 
     [Serializable]
     public abstract class DirectoryInfoBase : FileSystemInfoBase, IDirectory

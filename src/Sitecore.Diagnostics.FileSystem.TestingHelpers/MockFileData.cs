@@ -1,11 +1,10 @@
-using System.Linq;
-using System.Security.AccessControl;
-using System.Text;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 {
     using System;
     using System.IO;
+    using System.Linq;
+    using System.Security.AccessControl;
+    using System.Text;
 
     /// <summary>
     /// The class represents the associated data of a file.
@@ -23,9 +22,9 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
         /// </summary>
         public static readonly MockFileData NullObject = new MockFileData(string.Empty)
         {
-          LastWriteTime = new DateTime(1601, 01, 01, 00, 00, 00, DateTimeKind.Utc),
-          LastAccessTime = new DateTime(1601, 01, 01, 00, 00, 00, DateTimeKind.Utc),
-          CreationTime = new DateTime(1601, 01, 01, 00, 00, 00, DateTimeKind.Utc),
+            LastWriteTime = new DateTime(1601, 01, 01, 00, 00, 00, DateTimeKind.Utc),
+            LastAccessTime = new DateTime(1601, 01, 01, 00, 00, 00, DateTimeKind.Utc),
+            CreationTime = new DateTime(1601, 01, 01, 00, 00, 00, DateTimeKind.Utc),
         };
 
         /// <summary>
@@ -62,13 +61,15 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
         /// <summary>
         /// The access control of the <see cref="MockFileData"/>.
         /// </summary>
-        [NonSerialized]
-        private FileSecurity accessControl = new FileSecurity();
+        [NonSerialized] private FileSecurity accessControl = new FileSecurity();
 
         /// <summary>
         /// Gets a value indicating whether the <see cref="MockFileData"/> is a directory or not.
         /// </summary>
-        public virtual bool IsDirectory { get { return false; } }
+        public virtual bool IsDirectory
+        {
+            get { return false; }
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MockFileData"/> class with an empty content.
@@ -84,7 +85,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
         /// <param name="textContents">The textual content encoded into bytes with <see cref="DefaultEncoding"/>.</param>
         public MockFileData(string textContents)
             : this(DefaultEncoding.GetBytes(textContents))
-        {}
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MockFileData"/> class with the content of <paramref name="textContents"/> using the encoding of <paramref name="encoding"/>.

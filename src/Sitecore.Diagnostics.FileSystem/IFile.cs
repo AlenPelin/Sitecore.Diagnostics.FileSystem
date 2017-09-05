@@ -1,8 +1,7 @@
-using System.Security.AccessControl;
-
 namespace Sitecore.Diagnostics.FileSystem
 {
     using System.IO;
+    using System.Security.AccessControl;
 
     public interface IFile : IFileSystemEntry
     {

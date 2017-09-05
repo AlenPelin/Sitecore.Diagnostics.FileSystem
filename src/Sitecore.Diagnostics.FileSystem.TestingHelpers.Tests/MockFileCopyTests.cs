@@ -10,7 +10,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 
     using XFS = MockUnixSupport;
 
-    public class MockFileCopyTests {
+    public class MockFileCopyTests
+    {
         [Test]
         public void MockFile_Copy_ShouldOverwriteFileWhenOverwriteFlagIsTrue()
         {
@@ -117,7 +118,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
                     Assert.Throws<ArgumentException>(() => fileSystem.Internals.File.Copy(sourceFilePath, destFilePath));
 
                 Assert.That(exception.Message, Is.EqualTo("Illegal characters in path."),
-                    string.Format("Testing char: [{0:c}] \\{1:X4}", invalidChar, (int)invalidChar));
+                    string.Format("Testing char: [{0:c}] \\{1:X4}", invalidChar, (int) invalidChar));
             }
         }
 
@@ -141,7 +142,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
                     Assert.Throws<ArgumentException>(() => fileSystem.Internals.File.Copy(sourceFilePath, destFilePath));
 
                 Assert.That(exception.Message, Is.EqualTo("Illegal characters in path."),
-                    string.Format("Testing char: [{0:c}] \\{1:X4}", invalidChar, (int)invalidChar));
+                    string.Format("Testing char: [{0:c}] \\{1:X4}", invalidChar, (int) invalidChar));
             }
         }
 
@@ -165,7 +166,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
                     Assert.Throws<ArgumentException>(() => fileSystem.Internals.File.Copy(sourceFilePath, destFilePath));
 
                 Assert.That(exception.Message, Is.EqualTo("Illegal characters in path."),
-                    string.Format("Testing char: [{0:c}] \\{1:X4}", invalidChar, (int)invalidChar));
+                    string.Format("Testing char: [{0:c}] \\{1:X4}", invalidChar, (int) invalidChar));
             }
         }
 
@@ -189,7 +190,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
                     Assert.Throws<ArgumentException>(() => fileSystem.Internals.File.Copy(sourceFilePath, destFilePath));
 
                 Assert.That(exception.Message, Is.EqualTo("Illegal characters in path."),
-                    string.Format("Testing char: [{0:c}] \\{1:X4}", invalidChar, (int)invalidChar));
+                    string.Format("Testing char: [{0:c}] \\{1:X4}", invalidChar, (int) invalidChar));
             }
         }
 

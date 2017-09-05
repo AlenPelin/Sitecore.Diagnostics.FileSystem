@@ -1,13 +1,11 @@
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Security.AccessControl;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
+    using System;
+    using System.Collections.Generic;
     using System.IO;
+    using System.Security.AccessControl;
+
+    using NUnit.Framework;
 
     using XFS = MockUnixSupport;
 
@@ -59,7 +57,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>()
             {
-                { filePath, fileData }
+                {filePath, fileData}
             });
 
             // Act

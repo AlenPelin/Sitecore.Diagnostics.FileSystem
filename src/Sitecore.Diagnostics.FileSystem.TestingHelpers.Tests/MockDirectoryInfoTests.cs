@@ -1,11 +1,11 @@
-using System.Collections.Generic;
-using System.Linq;
-using NUnit.Framework;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
+
+    using NUnit.Framework;
 
     using XFS = MockUnixSupport;
 
@@ -16,8 +16,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             get
             {
-                yield return new object[] { XFS.Path(@"c:\temp") };
-                yield return new object[] { XFS.Path(@"c:\temp\") };
+                yield return new object[] {XFS.Path(@"c:\temp")};
+                yield return new object[] {XFS.Path(@"c:\temp\")};
             }
         }
 
@@ -39,8 +39,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             get
             {
-                yield return new object[]{ XFS.Path(@"c:\temp\folder"), true };
-                yield return new object[]{ XFS.Path(@"c:\temp\folder\notExistant"), false };
+                yield return new object[] {XFS.Path(@"c:\temp\folder"), true};
+                yield return new object[] {XFS.Path(@"c:\temp\folder\notExistant"), false};
             }
         }
 
@@ -65,7 +65,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             {
                 {
                     XFS.Path(@"c:\temp\folder\file.txt"),
-                        new MockFileData("Hello World")
+                    new MockFileData("Hello World")
                 }
             });
             var directoryInfo = new MockDirectoryInfo(fileSystem, XFS.Path(@"c:\temp\folder"));
@@ -80,8 +80,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\temp\folder\file.txt"), new MockFileData("Hello World") },
-                { XFS.Path(@"c:\temp\folder\folder"), new MockDirectoryData() }
+                {XFS.Path(@"c:\temp\folder\file.txt"), new MockFileData("Hello World")},
+                {XFS.Path(@"c:\temp\folder\folder"), new MockDirectoryData()}
             });
 
             var directoryInfo = new MockDirectoryInfo(fileSystem, XFS.Path(@"c:\temp\folder"));
@@ -95,8 +95,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\temp\folder\file.txt"), new MockFileData("Hello World") },
-                { XFS.Path(@"c:\temp\folder\folder"), new MockDirectoryData() }
+                {XFS.Path(@"c:\temp\folder\file.txt"), new MockFileData("Hello World")},
+                {XFS.Path(@"c:\temp\folder\folder"), new MockDirectoryData()}
             });
 
             var directoryInfo = new MockDirectoryInfo(fileSystem, XFS.Path(@"c:\temp\folder"));
@@ -110,9 +110,9 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\temp\folder\file.txt"), new MockFileData("Hello World") },
-                { XFS.Path(@"c:\temp\folder\folder"), new MockDirectoryData() },
-                { XFS.Path(@"c:\temp\folder\older"), new MockDirectoryData() }
+                {XFS.Path(@"c:\temp\folder\file.txt"), new MockFileData("Hello World")},
+                {XFS.Path(@"c:\temp\folder\folder"), new MockDirectoryData()},
+                {XFS.Path(@"c:\temp\folder\older"), new MockDirectoryData()}
             });
 
             var directoryInfo = new MockDirectoryInfo(fileSystem, XFS.Path(@"c:\temp\folder"));
@@ -126,9 +126,9 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\temp\folder\file.txt"), new MockFileData("Hello World") },
-                { XFS.Path(@"c:\temp\folder\folder"), new MockDirectoryData() },
-                { XFS.Path(@"c:\temp\folder\older"), new MockDirectoryData() }
+                {XFS.Path(@"c:\temp\folder\file.txt"), new MockFileData("Hello World")},
+                {XFS.Path(@"c:\temp\folder\folder"), new MockDirectoryData()},
+                {XFS.Path(@"c:\temp\folder\older"), new MockDirectoryData()}
             });
 
             var directoryInfo = new MockDirectoryInfo(fileSystem, XFS.Path(@"c:\temp\folder"));
@@ -155,25 +155,25 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         [Test]
         public void MockDirectoryInfo_EnumerateFiles_ShouldReturnAllFiles()
         {
-          // Arrange
-          var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
+            // Arrange
+            var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
                 //Files "above" in folder we're querying
-                { XFS.Path(@"c:\temp\a.txt"), "" },
+                {XFS.Path(@"c:\temp\a.txt"), ""},
 
                 //Files in the folder we're querying
-                { XFS.Path(@"c:\temp\folder\b.txt"), "" },
-                { XFS.Path(@"c:\temp\folder\c.txt"), "" },
+                {XFS.Path(@"c:\temp\folder\b.txt"), ""},
+                {XFS.Path(@"c:\temp\folder\c.txt"), ""},
 
                 //Files "below" the folder we're querying
-                { XFS.Path(@"c:\temp\folder\deeper\d.txt"), "" }
+                {XFS.Path(@"c:\temp\folder\deeper\d.txt"), ""}
             });
 
-          // Act
-          var directoryInfo = new MockDirectoryInfo(fileSystem, XFS.Path(@"c:\temp\folder"));
+            // Act
+            var directoryInfo = new MockDirectoryInfo(fileSystem, XFS.Path(@"c:\temp\folder"));
 
-          // Assert
-          Assert.AreEqual(new[]{"b.txt", "c.txt"}, directoryInfo.EnumerateFiles().ToList().Select(x => x.Name).ToArray());
+            // Assert
+            Assert.AreEqual(new[] {"b.txt", "c.txt"}, directoryInfo.EnumerateFiles().ToList().Select(x => x.Name).ToArray());
         }
 
         [Test]
@@ -183,11 +183,11 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
                 //A file we want to ignore entirely
-                { XFS.Path(@"c:\temp\folder\a.txt"), "" },
+                {XFS.Path(@"c:\temp\folder\a.txt"), ""},
 
                 //Some files in sub folders (which we also want to ignore entirely)
-                { XFS.Path(@"c:\temp\folder\b\file.txt"), "" },
-                { XFS.Path(@"c:\temp\folder\c\other.txt"), "" },
+                {XFS.Path(@"c:\temp\folder\b\file.txt"), ""},
+                {XFS.Path(@"c:\temp\folder\c\other.txt"), ""},
             });
             var directoryInfo = new MockDirectoryInfo(fileSystem, XFS.Path(@"c:\temp\folder"));
 
@@ -195,18 +195,18 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var directories = directoryInfo.EnumerateDirectories().Select(a => a.Name).ToArray();
 
             // Assert
-            Assert.AreEqual(new[] { "b", "c" }, directories);
+            Assert.AreEqual(new[] {"b", "c"}, directories);
         }
 
         public static IEnumerable<object[]> MockDirectoryInfo_FullName_Data
         {
             get
             {
-                yield return new object[] { XFS.Path(@"c:\temp\\folder"), XFS.Path(@"c:\temp\folder") };
-                yield return new object[] { XFS.Path(@"c:\temp//folder"), XFS.Path(@"c:\temp\folder") };
-                yield return new object[] { XFS.Path(@"c:\temp//\\///folder"), XFS.Path(@"c:\temp\folder") };
-                yield return new object[] { XFS.Path(@"\\unc\folder"), XFS.Path(@"\\unc\folder") };
-                yield return new object[] { XFS.Path(@"\\unc/folder\\foo"), XFS.Path(@"\\unc\folder\foo") };
+                yield return new object[] {XFS.Path(@"c:\temp\\folder"), XFS.Path(@"c:\temp\folder")};
+                yield return new object[] {XFS.Path(@"c:\temp//folder"), XFS.Path(@"c:\temp\folder")};
+                yield return new object[] {XFS.Path(@"c:\temp//\\///folder"), XFS.Path(@"c:\temp\folder")};
+                yield return new object[] {XFS.Path(@"\\unc\folder"), XFS.Path(@"\\unc\folder")};
+                yield return new object[] {XFS.Path(@"\\unc/folder\\foo"), XFS.Path(@"\\unc\folder\foo")};
             }
         }
 
@@ -216,7 +216,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\temp\folder\a.txt"), "" }
+                {XFS.Path(@"c:\temp\folder\a.txt"), ""}
             });
             var directoryInfo = new MockDirectoryInfo(fileSystem, directoryPath);
 
@@ -234,7 +234,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var fileSystem = new MockFileSystem();
 
             // Act
-           TestDelegate action = () => new MockDirectoryInfo(fileSystem, null);
+            TestDelegate action = () => new MockDirectoryInfo(fileSystem, null);
 
             // Assert
             var exception = Assert.Throws<ArgumentNullException>(action);

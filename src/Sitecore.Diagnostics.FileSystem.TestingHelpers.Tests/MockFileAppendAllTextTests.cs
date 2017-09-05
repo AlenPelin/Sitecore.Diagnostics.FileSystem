@@ -2,14 +2,11 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
     using System;
     using System.Collections.Generic;
-
     using System.Globalization;
     using System.IO;
     using System.Text;
 
     using NUnit.Framework;
-
-    
 
     using XFS = MockUnixSupport;
 

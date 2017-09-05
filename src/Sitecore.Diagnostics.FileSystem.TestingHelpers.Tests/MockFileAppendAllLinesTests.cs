@@ -1,10 +1,11 @@
-using System.Collections.Generic;
-using NUnit.Framework;
 using XFS = Sitecore.Diagnostics.FileSystem.TestingHelpers.MockUnixSupport;
 
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
     using System;
+    using System.Collections.Generic;
+
+    using NUnit.Framework;
 
     public class MockFileAppendAllLinesTests
     {
@@ -15,13 +16,13 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             string path = XFS.Path(@"c:\something\demo.txt");
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { path, new MockFileData("Demo text content") }
+                {path, new MockFileData("Demo text content")}
             });
 
             var file = new MockFile(fileSystem);
 
             // Act
-            file.AppendAllLines(path, new[] { "line 1", "line 2", "line 3" });
+            file.AppendAllLines(path, new[] {"line 1", "line 2", "line 3"});
 
             // Assert
             Assert.AreEqual(
@@ -36,12 +37,12 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             string path = XFS.Path(@"c:\something\demo.txt");
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\something\"), new MockDirectoryData() }
+                {XFS.Path(@"c:\something\"), new MockDirectoryData()}
             });
             var file = new MockFile(fileSystem);
 
             // Act
-            file.AppendAllLines(path, new[] { "line 1", "line 2", "line 3" });
+            file.AppendAllLines(path, new[] {"line 1", "line 2", "line 3"});
 
             // Assert
             Assert.AreEqual(
@@ -56,7 +57,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var fileSystem = new MockFileSystem();
 
             // Act
-            TestDelegate action = () => fileSystem.Internals.File.AppendAllLines(string.Empty, new[] { "does not matter" });
+            TestDelegate action = () => fileSystem.Internals.File.AppendAllLines(string.Empty, new[] {"does not matter"});
 
             // Assert
             Assert.Throws<ArgumentException>(action);
@@ -70,7 +71,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var fileSystem = new MockFileSystem();
 
             // Act
-            TestDelegate action = () => fileSystem.Internals.File.AppendAllLines(path, new[] { "does not matter" });
+            TestDelegate action = () => fileSystem.Internals.File.AppendAllLines(path, new[] {"does not matter"});
 
             // Assert
             Assert.Throws<ArgumentException>(action);
@@ -86,7 +87,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var fileSystem = new MockFileSystem();
 
             // Act
-            TestDelegate action = () => fileSystem.Internals.File.AppendAllLines(path, new[] { "does not matter" });
+            TestDelegate action = () => fileSystem.Internals.File.AppendAllLines(path, new[] {"does not matter"});
 
             // Assert
             Assert.Throws<ArgumentException>(action);
@@ -113,7 +114,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var fileSystem = new MockFileSystem();
 
             // Act
-            TestDelegate action = () => fileSystem.Internals.File.AppendAllLines("foo.txt", new [] { "bar" }, null);
+            TestDelegate action = () => fileSystem.Internals.File.AppendAllLines("foo.txt", new[] {"bar"}, null);
 
             // Assert
             var exception = Assert.Throws<ArgumentNullException>(action);

@@ -1,11 +1,10 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.AccessControl;
-
 namespace Sitecore.Diagnostics.FileSystem
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
+    using System.Security.AccessControl;
 
     [Serializable]
     public class DirectoryInfoWrapper : DirectoryInfoBase

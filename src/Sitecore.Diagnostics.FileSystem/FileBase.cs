@@ -1,11 +1,10 @@
-using System.Collections.Generic;
-using System.Security.AccessControl;
-using System.Text;
-
 namespace Sitecore.Diagnostics.FileSystem
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
+    using System.Security.AccessControl;
+    using System.Text;
 
     [Serializable]
     public abstract class FileBase
@@ -54,6 +53,7 @@ namespace Sitecore.Diagnostics.FileSystem
         /// </para>
         /// </remarks>
         public abstract bool Exists(string path);
+
         public abstract FileSecurity GetAccessControl(string path);
         public abstract FileSecurity GetAccessControl(string path, AccessControlSections includeSections);
 
@@ -208,6 +208,7 @@ namespace Sitecore.Diagnostics.FileSystem
         /// </para>
         /// </remarks>
         public abstract DateTime GetLastWriteTimeUtc(string path);
+
         public abstract void Move(string sourceFileName, string destFileName);
         public abstract Stream Open(string path, FileMode mode);
         public abstract Stream Open(string path, FileMode mode, FileAccess access);

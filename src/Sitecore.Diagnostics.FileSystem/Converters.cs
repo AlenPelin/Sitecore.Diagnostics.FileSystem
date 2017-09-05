@@ -1,11 +1,10 @@
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-
 namespace Sitecore.Diagnostics.FileSystem
 {
     using System;
+    using System.Collections.Generic;
+    using System.Globalization;
     using System.IO;
+    using System.Linq;
 
     internal static class Converters
     {
@@ -31,12 +30,12 @@ namespace Sitecore.Diagnostics.FileSystem
 
         internal static DirectoryInfoBase[] WrapDirectories(this IEnumerable<DirectoryInfo> input)
         {
-            return input.Select(f => (DirectoryInfoBase)f).ToArray();
+            return input.Select(f => (DirectoryInfoBase) f).ToArray();
         }
 
         internal static FileInfoBase[] WrapFiles(this IEnumerable<FileInfo> input)
         {
-            return input.Select(f => (FileInfoBase)f).ToArray();
+            return input.Select(f => (FileInfoBase) f).ToArray();
         }
     }
 }

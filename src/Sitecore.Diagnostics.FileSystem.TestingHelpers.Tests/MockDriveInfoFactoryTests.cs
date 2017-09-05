@@ -1,8 +1,9 @@
-using System.Linq;
-using NUnit.Framework;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
+    using System.Linq;
+
+    using NUnit.Framework;
+
     using XFS = MockUnixSupport;
 
     [TestFixture]
@@ -24,7 +25,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var actualNames = actualResults.Select(d => d.Name);
 
             // Assert
-            Assert.That(actualNames, Is.EquivalentTo(new[] { @"C:\", @"Z:\", @"D:\" }));
+            Assert.That(actualNames, Is.EquivalentTo(new[] {@"C:\", @"Z:\", @"D:\"}));
         }
 
         [Test]
@@ -45,7 +46,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var actualNames = actualResults.Select(d => d.Name);
 
             // Assert
-            Assert.That(actualNames, Is.EquivalentTo(new[] { @"C:\", @"Z:\", @"D:\" }));
+            Assert.That(actualNames, Is.EquivalentTo(new[] {@"C:\", @"Z:\", @"D:\"}));
         }
 
         [Test]
@@ -65,7 +66,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var actualNames = actualResults.Select(d => d.Name);
 
             // Assert
-            Assert.That(actualNames, Is.EquivalentTo(new[] { @"C:\", @"Z:\", @"D:\" }));
+            Assert.That(actualNames, Is.EquivalentTo(new[] {@"C:\", @"Z:\", @"D:\"}));
         }
     }
 }

@@ -1,7 +1,6 @@
 namespace Sitecore.Diagnostics.FileSystem.Extensions
 {
     using System.IO;
-    using Sitecore.Diagnostics.FileSystem;
     using System.Linq;
 
     using JetBrains.Annotations;
@@ -29,7 +28,7 @@ namespace Sitecore.Diagnostics.FileSystem.Extensions
         [NotNull]
         public static IDirectory ParseDirectory([NotNull] this IFileSystem fileSystem, [NotNull] IDirectory folder, [NotNull] params string[] pathSegments)
         {
-            return ParseDirectory(fileSystem, Path.Combine(pathSegments.Concat(new [] { folder.FullName }).ToArray()));
+            return ParseDirectory(fileSystem, Path.Combine(pathSegments.Concat(new[] {folder.FullName}).ToArray()));
         }
 
         [NotNull]
@@ -41,7 +40,7 @@ namespace Sitecore.Diagnostics.FileSystem.Extensions
         [NotNull]
         public static IFile ParseFile([NotNull] this IFileSystem fileSystem, [NotNull] IDirectory folder, [NotNull] params string[] pathSegments)
         {
-            return fileSystem.ParseFile(Path.Combine(pathSegments.Concat(new[] { folder.FullName }).ToArray()));
+            return fileSystem.ParseFile(Path.Combine(pathSegments.Concat(new[] {folder.FullName}).ToArray()));
         }
 
         public static IUniqueTempDirectory CreateTempFolder([NotNull] this IFileSystem fileSystem)

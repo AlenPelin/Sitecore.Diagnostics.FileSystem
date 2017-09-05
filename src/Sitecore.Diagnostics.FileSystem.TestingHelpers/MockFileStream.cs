@@ -67,7 +67,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
                 Seek(0, SeekOrigin.Begin);
                 /* .. read everything out */
                 var data = new byte[Length];
-                Read(data, 0, (int)Length);
+                Read(data, 0, (int) Length);
                 /* .. put it in the mock system */
                 mockFileData.Contents = data;
             }

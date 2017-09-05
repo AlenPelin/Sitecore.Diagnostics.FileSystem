@@ -1,8 +1,7 @@
-using System.ComponentModel;
-
 namespace Sitecore.Diagnostics.FileSystem
 {
     using System;
+    using System.ComponentModel;
     using System.IO;
 
     [Serializable]

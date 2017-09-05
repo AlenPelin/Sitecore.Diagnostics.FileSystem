@@ -9,7 +9,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 
     using XFS = MockUnixSupport;
 
-    public class MockFileMoveTests {
+    public class MockFileMoveTests
+    {
         [Test]
         public void MockFile_Move_ShouldMoveFileWithinMemoryFileSystem()
         {
@@ -59,7 +60,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         }
 
         [Test]
-        public void MockFile_Move_ShouldThrowArgumentNullExceptionWhenSourceIsNull_ParamName() {
+        public void MockFile_Move_ShouldThrowArgumentNullExceptionWhenSourceIsNull_ParamName()
+        {
             string destFilePath = XFS.Path(@"c:\something\demo.txt");
             var fileSystem = new MockFileSystem();
 
@@ -88,7 +90,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
                     Assert.Throws<ArgumentException>(() => fileSystem.Internals.File.Move(sourceFilePath, destFilePath));
 
                 Assert.That(exception.Message, Is.EqualTo("Illegal characters in path."),
-                    string.Format("Testing char: [{0:c}] \\{1:X4}", invalidChar, (int)invalidChar));
+                    string.Format("Testing char: [{0:c}] \\{1:X4}", invalidChar, (int) invalidChar));
             }
         }
 
@@ -112,7 +114,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
                     Assert.Throws<ArgumentException>(() => fileSystem.Internals.File.Move(sourceFilePath, destFilePath));
 
                 Assert.That(exception.Message, Is.EqualTo("Illegal characters in path."),
-                    string.Format("Testing char: [{0:c}] \\{1:X4}", invalidChar, (int)invalidChar));
+                    string.Format("Testing char: [{0:c}] \\{1:X4}", invalidChar, (int) invalidChar));
             }
         }
 
@@ -136,7 +138,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
                     Assert.Throws<ArgumentException>(() => fileSystem.Internals.File.Move(sourceFilePath, destFilePath));
 
                 Assert.That(exception.Message, Is.EqualTo("Illegal characters in path."),
-                    string.Format("Testing char: [{0:c}] \\{1:X4}", invalidChar, (int)invalidChar));
+                    string.Format("Testing char: [{0:c}] \\{1:X4}", invalidChar, (int) invalidChar));
             }
         }
 
@@ -160,7 +162,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
                     Assert.Throws<ArgumentException>(() => fileSystem.Internals.File.Move(sourceFilePath, destFilePath));
 
                 Assert.That(exception.Message, Is.EqualTo("Illegal characters in path."),
-                    string.Format("Testing char: [{0:c}] \\{1:X4}", invalidChar, (int)invalidChar));
+                    string.Format("Testing char: [{0:c}] \\{1:X4}", invalidChar, (int) invalidChar));
             }
         }
 
@@ -176,7 +178,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         }
 
         [Test]
-        public void MockFile_Move_ShouldThrowArgumentExceptionWhenSourceIsEmpty_ParamName() {
+        public void MockFile_Move_ShouldThrowArgumentExceptionWhenSourceIsEmpty_ParamName()
+        {
             string destFilePath = XFS.Path(@"c:\something\demo.txt");
             var fileSystem = new MockFileSystem();
 
@@ -209,7 +212,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         }
 
         [Test]
-        public void MockFile_Move_ShouldThrowArgumentNullExceptionWhenTargetIsNull_ParamName() {
+        public void MockFile_Move_ShouldThrowArgumentNullExceptionWhenTargetIsNull_ParamName()
+        {
             string sourceFilePath = XFS.Path(@"c:\something\demo.txt");
             var fileSystem = new MockFileSystem();
 
@@ -242,7 +246,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         }
 
         [Test]
-        public void MockFile_Move_ShouldThrowArgumentExceptionWhenTargetIsEmpty_ParamName() {
+        public void MockFile_Move_ShouldThrowArgumentExceptionWhenTargetIsEmpty_ParamName()
+        {
             string sourceFilePath = XFS.Path(@"c:\something\demo.txt");
             var fileSystem = new MockFileSystem();
 
@@ -264,7 +269,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         }
 
         [Test]
-        public void MockFile_Move_ShouldThrowFileNotFoundExceptionWhenSourceDoesNotExist_FileName() {
+        public void MockFile_Move_ShouldThrowFileNotFoundExceptionWhenSourceDoesNotExist_FileName()
+        {
             string sourceFilePath = XFS.Path(@"c:\something\demo.txt");
             string destFilePath = XFS.Path(@"c:\something\demo1.txt");
             var fileSystem = new MockFileSystem();

@@ -1,13 +1,12 @@
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Text.RegularExpressions;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 {
     using System;
+    using System.Collections.Generic;
+    using System.Globalization;
     using System.IO;
+    using System.Linq;
+    using System.Security.AccessControl;
+    using System.Text.RegularExpressions;
 
     using XFS = MockUnixSupport;
 
@@ -165,7 +164,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 
         public override string[] GetFiles(string path, string searchPattern, SearchOption searchOption)
         {
-            if(path == null)
+            if (path == null)
                 throw new ArgumentNullException();
 
             if (!Exists(path))
@@ -224,19 +223,19 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 
             return files
                 .Where(p =>
+                {
+                    if (Regex.IsMatch(p, pathPattern))
                     {
-                        if (Regex.IsMatch(p, pathPattern))
-                        {
-                            return true;
-                        }
+                        return true;
+                    }
 
-                        if (pathPatternSpecial != null && Regex.IsMatch(p, pathPatternSpecial))
-                        {
-                            return true;
-                        }
+                    if (pathPatternSpecial != null && Regex.IsMatch(p, pathPatternSpecial))
+                    {
+                        return true;
+                    }
 
-                        return false;
-                    })
+                    return false;
+                })
                 .ToArray();
         }
 
@@ -386,7 +385,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 
         public override void SetCurrentDirectory(string path)
         {
-          currentDirectory = path;
+            currentDirectory = path;
         }
 
         public override void SetLastAccessTime(string path, DateTime lastAccessTime)

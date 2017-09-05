@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using NUnit.Framework;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
     using System.Runtime.Serialization.Formatters.Binary;
+
+    using NUnit.Framework;
 
     [TestFixture]
     public class MockFileSystemTests
@@ -18,8 +17,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { @"c:\something\demo.txt", new MockFileData("Demo\r\ntext\ncontent\rvalue") },
-                { @"c:\something\other.gif", new MockFileData(new byte[] { 0x21, 0x58, 0x3f, 0xa9 }) }
+                {@"c:\something\demo.txt", new MockFileData("Demo\r\ntext\ncontent\rvalue")},
+                {@"c:\something\other.gif", new MockFileData(new byte[] {0x21, 0x58, 0x3f, 0xa9})}
             });
 
             // Act
@@ -36,8 +35,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var file1 = new MockFileData("Demo\r\ntext\ncontent\rvalue");
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { @"c:\something\demo.txt", file1 },
-                { @"c:\something\other.gif", new MockFileData(new byte[] { 0x21, 0x58, 0x3f, 0xa9 }) }
+                {@"c:\something\demo.txt", file1},
+                {@"c:\something\other.gif", new MockFileData(new byte[] {0x21, 0x58, 0x3f, 0xa9})}
             });
 
             // Act
@@ -54,8 +53,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var file1 = new MockFileData("Demo\r\ntext\ncontent\rvalue");
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { @"c:\something\demo.txt", file1 },
-                { @"c:\something\other.gif", new MockFileData(new byte[] { 0x21, 0x58, 0x3f, 0xa9 }) }
+                {@"c:\something\demo.txt", file1},
+                {@"c:\something\other.gif", new MockFileData(new byte[] {0x21, 0x58, 0x3f, 0xa9})}
             });
 
             // Act
@@ -72,7 +71,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             const string existingContent = "Existing content";
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { path, new MockFileData(existingContent) }
+                {path, new MockFileData(existingContent)}
             });
             Assert.That(fileSystem.GetFile(path).TextContents, Is.EqualTo(existingContent));
 
@@ -88,8 +87,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var file1 = new MockFileData("Demo\r\ntext\ncontent\rvalue");
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { @"c:\something\demo.txt", file1 },
-                { @"c:\something\other.gif", new MockFileData(new byte[] { 0x21, 0x58, 0x3f, 0xa9 }) }
+                {@"c:\something\demo.txt", file1},
+                {@"c:\something\other.gif", new MockFileData(new byte[] {0x21, 0x58, 0x3f, 0xa9})}
             });
             var memoryStream = new MemoryStream();
 

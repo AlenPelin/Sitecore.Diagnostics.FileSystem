@@ -1,11 +1,10 @@
-using System.Collections.Generic;
-using System.Security.AccessControl;
-using System.Text;
-
 namespace Sitecore.Diagnostics.FileSystem
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
+    using System.Security.AccessControl;
+    using System.Text;
 
     [Serializable]
     public class FileWrapper : FileBase

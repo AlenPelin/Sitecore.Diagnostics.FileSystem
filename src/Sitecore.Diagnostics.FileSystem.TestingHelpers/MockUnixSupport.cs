@@ -1,8 +1,7 @@
-using System.Text.RegularExpressions;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 {
     using System;
+    using System.Text.RegularExpressions;
 
     internal static class MockUnixSupport
     {
@@ -27,7 +26,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 
         internal static bool IsUnixPlatform()
         {
-            int p = (int)Environment.OSVersion.Platform;
+            int p = (int) Environment.OSVersion.Platform;
             return (p == 4) || (p == 6) || (p == 128);
         }
     }

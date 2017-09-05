@@ -1,9 +1,9 @@
-using NUnit.Framework;
-using System.Collections.Generic;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
     using System;
+    using System.Collections.Generic;
+
+    using NUnit.Framework;
 
     using XFS = MockUnixSupport;
 
@@ -145,13 +145,13 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             get
             {
-                yield return new [] { XFS.Path(@"c:\a"), "b", XFS.Path(@"c:\a\b") };
-                yield return new [] { XFS.Path(@"c:\a\b"), "c", XFS.Path(@"c:\a\b\c") };
-                yield return new [] { XFS.Path(@"c:\a\b"), XFS.Path(@"c\"), XFS.Path(@"c:\a\b\c\") };
-                yield return new [] { XFS.Path(@"c:\a\b"), XFS.Path(@"..\c"), XFS.Path(@"c:\a\c") };
-                yield return new [] { XFS.Path(@"c:\a\b\c"), XFS.Path(@"..\c\..\"), XFS.Path(@"c:\a\b\") };
-                yield return new [] { XFS.Path(@"c:\a\b\c"), XFS.Path(@"..\..\..\..\..\d"), XFS.Path(@"c:\d") };
-                yield return new [] { XFS.Path(@"c:\a\b\c"), XFS.Path(@"..\..\..\..\..\d\"), XFS.Path(@"c:\d\") };
+                yield return new[] {XFS.Path(@"c:\a"), "b", XFS.Path(@"c:\a\b")};
+                yield return new[] {XFS.Path(@"c:\a\b"), "c", XFS.Path(@"c:\a\b\c")};
+                yield return new[] {XFS.Path(@"c:\a\b"), XFS.Path(@"c\"), XFS.Path(@"c:\a\b\c\")};
+                yield return new[] {XFS.Path(@"c:\a\b"), XFS.Path(@"..\c"), XFS.Path(@"c:\a\c")};
+                yield return new[] {XFS.Path(@"c:\a\b\c"), XFS.Path(@"..\c\..\"), XFS.Path(@"c:\a\b\")};
+                yield return new[] {XFS.Path(@"c:\a\b\c"), XFS.Path(@"..\..\..\..\..\d"), XFS.Path(@"c:\d")};
+                yield return new[] {XFS.Path(@"c:\a\b\c"), XFS.Path(@"..\..\..\..\..\d\"), XFS.Path(@"c:\d\")};
             }
         }
 
@@ -174,11 +174,11 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             get
             {
-                yield return new [] { XFS.Path(@"c:\a\b\..\c"), XFS.Path(@"c:\a\c") };
-                yield return new [] { XFS.Path(@"c:\a\b\.\.\..\.\c"), XFS.Path(@"c:\a\c") };
-                yield return new [] { XFS.Path(@"c:\a\b\.\c"), XFS.Path(@"c:\a\b\c") };
-                yield return new [] { XFS.Path(@"c:\a\b\.\.\.\.\c"), XFS.Path(@"c:\a\b\c") };
-                yield return new [] { XFS.Path(@"c:\a\..\..\c"), XFS.Path(@"c:\c") };
+                yield return new[] {XFS.Path(@"c:\a\b\..\c"), XFS.Path(@"c:\a\c")};
+                yield return new[] {XFS.Path(@"c:\a\b\.\.\..\.\c"), XFS.Path(@"c:\a\c")};
+                yield return new[] {XFS.Path(@"c:\a\b\.\c"), XFS.Path(@"c:\a\b\c")};
+                yield return new[] {XFS.Path(@"c:\a\b\.\.\.\.\c"), XFS.Path(@"c:\a\b\c")};
+                yield return new[] {XFS.Path(@"c:\a\..\..\c"), XFS.Path(@"c:\c")};
             }
         }
 
@@ -200,14 +200,14 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             get
             {
-                yield return new [] { XFS.Path(@"c:\a"), XFS.Path(@"/b"), XFS.Path(@"c:\b") };
-                yield return new [] { XFS.Path(@"c:\a"), XFS.Path(@"/b\"), XFS.Path(@"c:\b\") };
-                yield return new [] { XFS.Path(@"c:\a"), XFS.Path(@"\b"), XFS.Path(@"c:\b") };
-                yield return new [] { XFS.Path(@"c:\a"), XFS.Path(@"\b\..\c"), XFS.Path(@"c:\c") };
-                yield return new [] { XFS.Path(@"z:\a"), XFS.Path(@"\b\..\c"), XFS.Path(@"z:\c") };
-                yield return new [] { XFS.Path(@"z:\a"), XFS.Path(@"\\computer\share\c"), XFS.Path(@"\\computer\share\c") };
-                yield return new [] { XFS.Path(@"z:\a"), XFS.Path(@"\\computer\share\c\..\d"), XFS.Path(@"\\computer\share\d") };
-                yield return new [] { XFS.Path(@"z:\a"), XFS.Path(@"\\computer\share\c\..\..\d"), XFS.Path(@"\\computer\share\d") };
+                yield return new[] {XFS.Path(@"c:\a"), XFS.Path(@"/b"), XFS.Path(@"c:\b")};
+                yield return new[] {XFS.Path(@"c:\a"), XFS.Path(@"/b\"), XFS.Path(@"c:\b\")};
+                yield return new[] {XFS.Path(@"c:\a"), XFS.Path(@"\b"), XFS.Path(@"c:\b")};
+                yield return new[] {XFS.Path(@"c:\a"), XFS.Path(@"\b\..\c"), XFS.Path(@"c:\c")};
+                yield return new[] {XFS.Path(@"z:\a"), XFS.Path(@"\b\..\c"), XFS.Path(@"z:\c")};
+                yield return new[] {XFS.Path(@"z:\a"), XFS.Path(@"\\computer\share\c"), XFS.Path(@"\\computer\share\c")};
+                yield return new[] {XFS.Path(@"z:\a"), XFS.Path(@"\\computer\share\c\..\d"), XFS.Path(@"\\computer\share\d")};
+                yield return new[] {XFS.Path(@"z:\a"), XFS.Path(@"\\computer\share\c\..\..\d"), XFS.Path(@"\\computer\share\d")};
             }
         }
 
@@ -276,7 +276,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var mockPath = new MockPath(mockFileSystem);
 
             //Act
-            var actualFullPath =  mockPath.GetFullPath(XFS.Path(@"c:\foo\\//bar\file.dat"));
+            var actualFullPath = mockPath.GetFullPath(XFS.Path(@"c:\foo\\//bar\file.dat"));
 
             //Assert
             Assert.AreEqual(XFS.Path(@"c:\foo\bar\file.dat"), actualFullPath);

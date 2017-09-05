@@ -2,14 +2,11 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
     using System;
     using System.Collections.Generic;
-
     using System.Globalization;
     using System.IO;
     using System.Text;
 
     using NUnit.Framework;
-
-    
 
     using XFS = MockUnixSupport;
 
@@ -81,14 +78,14 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             // Arrange
             string path = XFS.Path(@"c:\something\read-only.txt");
-            var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData> { { path, new MockFileData("Content") } });
+            var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData> {{path, new MockFileData("Content")}});
             var mockFile = new MockFile(fileSystem);
 
             // Act
             mockFile.SetAttributes(path, FileAttributes.ReadOnly);
 
             // Assert
-            var exception =  Assert.Throws<UnauthorizedAccessException>(() => mockFile.Create(path).Close());
+            var exception = Assert.Throws<UnauthorizedAccessException>(() => mockFile.Create(path).Close());
             Assert.That(exception.Message, Is.EqualTo(string.Format(CultureInfo.InvariantCulture, "Access to the path '{0}' is denied.", path)));
         }
 

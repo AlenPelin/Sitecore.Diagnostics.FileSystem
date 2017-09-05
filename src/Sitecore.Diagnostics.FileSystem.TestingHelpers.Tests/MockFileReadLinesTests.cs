@@ -3,23 +3,20 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
     using System.Collections.Generic;
     using System.Text;
 
-    using System.Collections.Generic;
-
     using NUnit.Framework;
-
-    
 
     using XFS = MockUnixSupport;
 
-    public class MockFileReadLinesTests {
+    public class MockFileReadLinesTests
+    {
         [Test]
         public void MockFile_ReadLines_ShouldReturnOriginalTextData()
         {
             // Arrange
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\something\demo.txt"), new MockFileData("Demo\r\ntext\ncontent\rvalue") },
-                { XFS.Path(@"c:\something\other.gif"), new MockFileData(new byte[] { 0x21, 0x58, 0x3f, 0xa9 }) }
+                {XFS.Path(@"c:\something\demo.txt"), new MockFileData("Demo\r\ntext\ncontent\rvalue")},
+                {XFS.Path(@"c:\something\other.gif"), new MockFileData(new byte[] {0x21, 0x58, 0x3f, 0xa9})}
             });
 
             var file = new MockFile(fileSystem);
@@ -29,7 +26,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 
             // Assert
             CollectionAssert.AreEqual(
-                new[] { "Demo", "text", "content", "value" },
+                new[] {"Demo", "text", "content", "value"},
                 result);
         }
 
@@ -41,7 +38,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             var encodedText = Encoding.BigEndianUnicode.GetBytes(text);
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { XFS.Path(@"c:\something\demo.txt"), new MockFileData(encodedText) }
+                {XFS.Path(@"c:\something\demo.txt"), new MockFileData(encodedText)}
             });
 
             var file = new MockFile(fileSystem);
@@ -51,7 +48,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 
             // Assert
             CollectionAssert.AreEqual(
-                new [] { "Hello", "there", "Bob", "Bob!" },
+                new[] {"Hello", "there", "Bob", "Bob!"},
                 result);
         }
     }

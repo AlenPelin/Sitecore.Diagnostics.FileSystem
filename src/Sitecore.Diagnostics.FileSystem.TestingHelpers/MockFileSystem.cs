@@ -1,11 +1,10 @@
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 {
     using System;
+    using System.Collections.Generic;
+    using System.Globalization;
     using System.IO;
+    using System.Linq;
 
     using XFS = MockUnixSupport;
 
@@ -20,10 +19,11 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
         private readonly IDirectoryInfoFactory directoryInfoFactory;
         private readonly IDriveInfoFactory driveInfoFactory;
 
-        [NonSerialized]
-        private readonly PathVerifier pathVerifier;
+        [NonSerialized] private readonly PathVerifier pathVerifier;
 
-        public MockFileSystem() : this(null) { }
+        public MockFileSystem() : this(null)
+        {
+        }
 
         public MockFileSystem(IDictionary<string, MockFileData> files, string currentDirectory = "")
         {
@@ -94,7 +94,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 
         //If C:\foo exists, ensures that trying to save a file to "C:\FOO\file.txt" instead saves it to "C:\foo\file.txt".
         private string GetPathWithCorrectDirectoryCapitalization(string fullPath)
-        {          
+        {
             string[] splitPath = fullPath.Split(Path.DirectorySeparatorChar);
             string leftHalf = fullPath;
             string rightHalf = "";

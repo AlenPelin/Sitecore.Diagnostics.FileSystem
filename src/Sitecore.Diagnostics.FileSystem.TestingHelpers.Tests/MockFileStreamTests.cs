@@ -23,7 +23,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
             cut.Flush();
 
             // Assert
-            CollectionAssert.AreEqual(new byte[]{255}, filesystem.GetFile(filepath).Contents);
+            CollectionAssert.AreEqual(new byte[] {255}, filesystem.GetFile(filepath).Contents);
         }
 
         [Test]
@@ -52,7 +52,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
         {
             // Arrange
             var nonexistentFilePath = XFS.Path(@"c:\something\foo.txt");
-            var filesystem = new MockFileSystem(new Dictionary<string, MockFileData>());         
+            var filesystem = new MockFileSystem(new Dictionary<string, MockFileData>());
 
             // Act
             var illegalFileStream = new MockFileStream(filesystem, nonexistentFilePath, MockFileStream.StreamType.READ);

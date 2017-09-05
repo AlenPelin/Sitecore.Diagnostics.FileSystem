@@ -1,9 +1,8 @@
-using System.Security.AccessControl;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 {
     using System;
     using System.IO;
+    using System.Security.AccessControl;
 
     [Serializable]
     public class MockFileInfo : FileInfoBase
@@ -56,12 +55,14 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
         {
             get
             {
-                if (MockFileData == null) throw new FileNotFoundException("File not found", path);
+                if (MockFileData == null)
+                    throw new FileNotFoundException("File not found", path);
                 return MockFileData.CreationTime.DateTime;
             }
             set
             {
-                if (MockFileData == null) throw new FileNotFoundException("File not found", path);
+                if (MockFileData == null)
+                    throw new FileNotFoundException("File not found", path);
                 MockFileData.CreationTime = value;
             }
         }
@@ -70,12 +71,14 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
         {
             get
             {
-                if (MockFileData == null) throw new FileNotFoundException("File not found", path);
+                if (MockFileData == null)
+                    throw new FileNotFoundException("File not found", path);
                 return MockFileData.CreationTime.UtcDateTime;
             }
             set
             {
-                if (MockFileData == null) throw new FileNotFoundException("File not found", path);
+                if (MockFileData == null)
+                    throw new FileNotFoundException("File not found", path);
                 MockFileData.CreationTime = value.ToLocalTime();
             }
         }
@@ -104,12 +107,14 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
         {
             get
             {
-                if (MockFileData == null) throw new FileNotFoundException("File not found", path);
+                if (MockFileData == null)
+                    throw new FileNotFoundException("File not found", path);
                 return MockFileData.LastAccessTime.DateTime;
             }
             set
             {
-                if (MockFileData == null) throw new FileNotFoundException("File not found", path);
+                if (MockFileData == null)
+                    throw new FileNotFoundException("File not found", path);
                 MockFileData.LastAccessTime = value;
             }
         }
@@ -118,12 +123,14 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
         {
             get
             {
-                if (MockFileData == null) throw new FileNotFoundException("File not found", path);
+                if (MockFileData == null)
+                    throw new FileNotFoundException("File not found", path);
                 return MockFileData.LastAccessTime.UtcDateTime;
             }
             set
             {
-                if (MockFileData == null) throw new FileNotFoundException("File not found", path);
+                if (MockFileData == null)
+                    throw new FileNotFoundException("File not found", path);
                 MockFileData.LastAccessTime = value;
             }
         }
@@ -132,12 +139,14 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
         {
             get
             {
-                if (MockFileData == null) throw new FileNotFoundException("File not found", path);
+                if (MockFileData == null)
+                    throw new FileNotFoundException("File not found", path);
                 return MockFileData.LastWriteTime.DateTime;
             }
             set
             {
-                if (MockFileData == null) throw new FileNotFoundException("File not found", path);
+                if (MockFileData == null)
+                    throw new FileNotFoundException("File not found", path);
                 MockFileData.LastWriteTime = value;
             }
         }
@@ -146,23 +155,27 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
         {
             get
             {
-                if (MockFileData == null) throw new FileNotFoundException("File not found", path);
+                if (MockFileData == null)
+                    throw new FileNotFoundException("File not found", path);
                 return MockFileData.LastWriteTime.UtcDateTime;
             }
             set
             {
-                if (MockFileData == null) throw new FileNotFoundException("File not found", path);
+                if (MockFileData == null)
+                    throw new FileNotFoundException("File not found", path);
                 MockFileData.LastWriteTime = value.ToLocalTime();
             }
         }
 
-        public override string Name {
+        public override string Name
+        {
             get { return new MockPath(mockFileSystem).GetFileName(path); }
         }
 
         public override StreamWriter AppendText()
         {
-            if (MockFileData == null) throw new FileNotFoundException("File not found", path);
+            if (MockFileData == null)
+                throw new FileNotFoundException("File not found", path);
             return new StreamWriter(new MockFileStream(mockFileSystem, FullName, MockFileStream.StreamType.APPEND));
             //return ((MockFileDataModifier) MockFileData).AppendText();
         }
@@ -191,17 +204,19 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 
         public override void Decrypt()
         {
-            if (MockFileData == null) throw new FileNotFoundException("File not found", path);
+            if (MockFileData == null)
+                throw new FileNotFoundException("File not found", path);
             var contents = MockFileData.Contents;
             for (var i = 0; i < contents.Length; i++)
-                contents[i] ^= (byte)(i % 256);
+                contents[i] ^= (byte) (i % 256);
         }
 
         public override void Encrypt()
         {
-            if (MockFileData == null) throw new FileNotFoundException("File not found", path);
+            if (MockFileData == null)
+                throw new FileNotFoundException("File not found", path);
             var contents = MockFileData.Contents;
-            for(var i = 0; i < contents.Length; i++)
+            for (var i = 0; i < contents.Length; i++)
                 contents[i] ^= (byte) (i % 256);
         }
 
@@ -239,13 +254,14 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 
         public override Stream OpenRead()
         {
-            if (MockFileData == null) throw new FileNotFoundException("File not found", path);
+            if (MockFileData == null)
+                throw new FileNotFoundException("File not found", path);
             return new MockFileStream(mockFileSystem, path, MockFileStream.StreamType.READ);
         }
 
         public override StreamReader OpenText()
         {
-          return new StreamReader(OpenRead());
+            return new StreamReader(OpenRead());
         }
 
         public override Stream OpenWrite()
@@ -270,10 +286,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 
         public override IDirectory Directory
         {
-            get
-            {
-                return mockFileSystem.DirectoryInfo.FromDirectoryName(DirectoryName);
-            }
+            get { return mockFileSystem.DirectoryInfo.FromDirectoryName(DirectoryName); }
         }
 
         public override string DirectoryName
@@ -290,13 +303,15 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
         {
             get
             {
-                if (MockFileData == null) throw new FileNotFoundException("File not found", path);
+                if (MockFileData == null)
+                    throw new FileNotFoundException("File not found", path);
                 return (MockFileData.Attributes & FileAttributes.ReadOnly) == FileAttributes.ReadOnly;
             }
             set
             {
-                if (MockFileData == null) throw new FileNotFoundException("File not found", path);
-                if(value)
+                if (MockFileData == null)
+                    throw new FileNotFoundException("File not found", path);
+                if (value)
                     MockFileData.Attributes |= FileAttributes.ReadOnly;
                 else
                     MockFileData.Attributes &= ~FileAttributes.ReadOnly;
@@ -307,7 +322,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
         {
             get
             {
-                if (MockFileData == null) throw new FileNotFoundException("File not found", path);
+                if (MockFileData == null)
+                    throw new FileNotFoundException("File not found", path);
                 return MockFileData.Contents.LongLength;
             }
         }

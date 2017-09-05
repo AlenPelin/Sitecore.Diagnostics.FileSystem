@@ -1,8 +1,7 @@
-using System.Linq;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 {
     using System;
+    using System.Linq;
 
     public class PathVerifier
     {
@@ -22,7 +21,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
         {
             if (path == null)
             {
-                throw new ArgumentNullException(paramName,  Properties.Resources.VALUE_CANNOT_BE_NULL);
+                throw new ArgumentNullException(paramName, Properties.Resources.VALUE_CANNOT_BE_NULL);
             }
 
             if (path == string.Empty)

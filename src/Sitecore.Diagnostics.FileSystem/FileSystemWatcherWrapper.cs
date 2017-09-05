@@ -1,15 +1,13 @@
-using System.ComponentModel;
-
 namespace Sitecore.Diagnostics.FileSystem
 {
     using System;
+    using System.ComponentModel;
     using System.IO;
 
     [Serializable]
     public class FileSystemWatcherWrapper : FileSystemWatcherBase
     {
-        [NonSerialized]
-        private readonly FileSystemWatcher watcher;
+        [NonSerialized] private readonly FileSystemWatcher watcher;
 
         public FileSystemWatcherWrapper()
             : this(new FileSystemWatcher())

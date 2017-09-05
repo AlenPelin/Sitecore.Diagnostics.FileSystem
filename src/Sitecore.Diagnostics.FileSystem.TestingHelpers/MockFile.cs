@@ -1,13 +1,12 @@
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Text;
-
 namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 {
     using System;
+    using System.Collections.Generic;
+    using System.Globalization;
     using System.IO;
+    using System.Linq;
+    using System.Security.AccessControl;
+    using System.Text;
 
     [Serializable]
     public class MockFile : FileBase
@@ -289,7 +288,8 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
             return GetTimeFromFile(path, data => data.LastAccessTime.UtcDateTime, () => MockFileData.DefaultDateTimeOffset.UtcDateTime);
         }
 
-        public override DateTime GetLastWriteTime(string path) {
+        public override DateTime GetLastWriteTime(string path)
+        {
             mockFileDataAccessor.PathVerifier.IsLegalAbsoluteOrRelative(path, "path");
 
             return GetTimeFromFile(path, data => data.LastWriteTime.LocalDateTime, () => MockFileData.DefaultDateTimeOffset.LocalDateTime);
@@ -608,7 +608,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
             mockFileDataAccessor.AddFile(path, new MockFileData(bytes));
         }
 
-       /// <summary>
+        /// <summary>
         /// Creates a new file, writes a collection of strings to the file, and then closes the file.
         /// </summary>
         /// <param name="path">The file to write to.</param>
@@ -873,7 +873,7 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
             }
 
             VerifyDirectoryExists(path);
-     
+
             MockFileData data = contents == null ? new MockFileData(new byte[0]) : new MockFileData(contents, encoding);
             mockFileDataAccessor.AddFile(path, data);
         }
@@ -881,10 +881,10 @@ namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
         internal static string ReadAllBytes(byte[] contents, Encoding encoding)
         {
             using (var ms = new MemoryStream(contents))
-            using (var sr = new StreamReader(ms, encoding))
-            {
-                return sr.ReadToEnd();
-            }
+                using (var sr = new StreamReader(ms, encoding))
+                {
+                    return sr.ReadToEnd();
+                }
         }
 
         private string ReadAllTextInternal(string path, Encoding encoding)
