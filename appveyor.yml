@@ -24,6 +24,9 @@ build:
   parallel: true                 
   verbosity: minimal
 
+build:
+  publish_nuget: true
+
 after_build:
   - cmd: cd src\Sitecore.Diagnostics.FileSystem\bin\Release
   - cmd: 7z a Sitecore.Diagnostics.FileSystem.zip ".\*"
