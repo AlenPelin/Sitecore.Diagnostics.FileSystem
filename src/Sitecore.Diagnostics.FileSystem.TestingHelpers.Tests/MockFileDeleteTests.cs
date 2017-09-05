@@ -1,5 +1,7 @@
-﻿namespace System.IO.Abstractions.TestingHelpers.Tests
+namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
+    using System;
+
     using NUnit.Framework;
 
     using XFS = MockUnixSupport;

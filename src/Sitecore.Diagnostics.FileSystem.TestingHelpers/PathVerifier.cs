@@ -1,7 +1,9 @@
-﻿using System.Linq;
+using System.Linq;
 
-namespace System.IO.Abstractions.TestingHelpers
+namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 {
+    using System;
+
     public class PathVerifier
     {
         private readonly IMockFileDataAccessor _mockFileDataAccessor;

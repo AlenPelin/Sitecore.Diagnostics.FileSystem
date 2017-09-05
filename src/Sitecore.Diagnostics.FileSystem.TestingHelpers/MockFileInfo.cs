@@ -1,7 +1,10 @@
-﻿using System.Security.AccessControl;
+using System.Security.AccessControl;
 
-namespace System.IO.Abstractions.TestingHelpers
+namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 {
+    using System;
+    using System.IO;
+
     [Serializable]
     public class MockFileInfo : FileInfoBase
     {

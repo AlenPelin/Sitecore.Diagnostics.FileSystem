@@ -1,5 +1,7 @@
-namespace System.IO.Abstractions.TestingHelpers
+namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 {
+    using System;
+
     [Serializable]
     public class MockDirectoryInfoFactory : IDirectoryInfoFactory
     {

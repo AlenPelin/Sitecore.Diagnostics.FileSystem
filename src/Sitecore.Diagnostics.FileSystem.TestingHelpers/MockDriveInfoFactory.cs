@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
-namespace System.IO.Abstractions.TestingHelpers
+namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 {
+    using System;
+
     [Serializable]
     public class MockDriveInfoFactory : IDriveInfoFactory
     {

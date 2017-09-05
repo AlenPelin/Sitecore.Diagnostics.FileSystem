@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Security.AccessControl;
 using NUnit.Framework;
 
-namespace System.IO.Abstractions.TestingHelpers.Tests
+namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
+    using System;
+    using System.IO;
+
     public class MockDirectoryArgumentPathTests
     {
         private static IEnumerable<Action<DirectoryBase>> GetFileSystemActionsForArgumentNullException()

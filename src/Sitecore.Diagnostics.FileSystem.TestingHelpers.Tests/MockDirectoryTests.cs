@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.AccessControl;
 using NUnit.Framework;
 
-namespace System.IO.Abstractions.TestingHelpers.Tests
+namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
+    using System;
+    using System.IO;
+
     using XFS = MockUnixSupport;
 
     [TestFixture]

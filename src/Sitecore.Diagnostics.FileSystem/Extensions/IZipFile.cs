@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Diagnostics.IO
+namespace Sitecore.Diagnostics.IO
 {
   using System;
   using JetBrains.Annotations;

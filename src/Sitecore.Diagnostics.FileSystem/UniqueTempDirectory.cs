@@ -1,7 +1,10 @@
-﻿namespace System.IO.Abstractions
+namespace Sitecore.Diagnostics.FileSystem
 {
+    using System;
     using System.Collections.Generic;
-    using System.IO.Abstractions.Extensions;
+    using System.IO;
+
+    using Sitecore.Diagnostics.FileSystem.Extensions;
     using System.Security.AccessControl;
 
     public class UniqueTempDirectory : IUniqueTempDirectory

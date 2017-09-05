@@ -1,6 +1,7 @@
-﻿namespace System.IO.Abstractions.TestingHelpers.Tests
+namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
     using System.Collections.Generic;
+    using System.IO;
 
     using NUnit.Framework;
 

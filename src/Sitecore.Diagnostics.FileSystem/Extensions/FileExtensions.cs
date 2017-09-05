@@ -1,7 +1,7 @@
-namespace System.IO.Abstractions.Extensions
+namespace Sitecore.Diagnostics.FileSystem.Extensions
 {
     using System.IO;
-    using System.IO.Abstractions;
+    using Sitecore.Diagnostics.FileSystem;
 
     using JetBrains.Annotations;
 

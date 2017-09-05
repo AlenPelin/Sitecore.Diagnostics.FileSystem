@@ -1,4 +1,4 @@
-﻿namespace System.IO.Abstractions
+namespace Sitecore.Diagnostics.FileSystem
 {
     /// <summary>
     /// A factory to create all <see cref="DriveInfoBase"/> for a <see cref="IFileSystem"/>.

@@ -1,10 +1,13 @@
-namespace System.IO.Abstractions.TestingHelpers.Tests
+namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
-    using Collections.Generic;
+    using System.Collections.Generic;
+    using System.Text;
+
+    using System.Collections.Generic;
 
     using NUnit.Framework;
 
-    using Text;
+    
 
     using XFS = MockUnixSupport;
 

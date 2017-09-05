@@ -1,9 +1,12 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
 
-namespace System.IO.Abstractions.TestingHelpers
+namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 {
+    using System;
+    using System.IO;
+
     /// <summary>
     /// The class represents the associated data of a file.
     /// </summary>

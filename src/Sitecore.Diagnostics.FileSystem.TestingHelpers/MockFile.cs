@@ -1,11 +1,14 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
 
-namespace System.IO.Abstractions.TestingHelpers
+namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 {
+    using System;
+    using System.IO;
+
     [Serializable]
     public class MockFile : FileBase
     {

@@ -1,8 +1,8 @@
-﻿namespace System.IO.Abstractions.Extensions
+namespace Sitecore.Diagnostics.FileSystem.Extensions
 {
     using System.Collections.Generic;
     using System.IO;
-    using System.IO.Abstractions;
+    using Sitecore.Diagnostics.FileSystem;
     using System.Text.RegularExpressions;
 
     using JetBrains.Annotations;

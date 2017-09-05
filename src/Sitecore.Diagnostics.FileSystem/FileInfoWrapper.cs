@@ -1,7 +1,10 @@
-﻿using System.Security.AccessControl;
+using System.Security.AccessControl;
 
-namespace System.IO.Abstractions
+namespace Sitecore.Diagnostics.FileSystem
 {
+    using System;
+    using System.IO;
+
     [Serializable]
     public class FileInfoWrapper : FileInfoBase
     {
@@ -19,7 +22,7 @@ namespace System.IO.Abstractions
 
         public override IFileSystem FileSystem
         {
-            get { return Abstractions.FileSystem.Instance; }
+            get { return Diagnostics.FileSystem.FileSystem.Instance; }
         }
 
         public override void Delete()

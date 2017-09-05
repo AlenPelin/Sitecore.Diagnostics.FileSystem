@@ -1,7 +1,10 @@
-﻿using System.Security.AccessControl;
+using System.Security.AccessControl;
 
-namespace System.IO.Abstractions
+namespace Sitecore.Diagnostics.FileSystem
 {
+    using System;
+    using System.IO;
+
     [Serializable]
     public abstract class FileInfoBase : FileSystemInfoBase, IFile
     {

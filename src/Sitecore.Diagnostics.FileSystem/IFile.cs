@@ -1,7 +1,9 @@
-﻿using System.Security.AccessControl;
+using System.Security.AccessControl;
 
-namespace System.IO.Abstractions
+namespace Sitecore.Diagnostics.FileSystem
 {
+    using System.IO;
+
     public interface IFile : IFileSystemEntry
     {
         IDirectory Directory { get; }

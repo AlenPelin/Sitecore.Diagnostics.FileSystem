@@ -147,7 +147,7 @@ $RECYCLE.BIN/
 # Mac crap
 .DS_Store
 
-#System.IO.Abstractions specific ignores
+#Sitecore.Diagnostics.FileSystem specific ignores
 Releases
-System.IO.Abstractions.*.nupkg
+Sitecore.Diagnostics.FileSystem.*.nupkg
 .vs/

@@ -1,6 +1,6 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 
-namespace System.IO.Abstractions.TestingHelpers.Tests
+namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
     [TestFixture]
     public class MockUnixSupportTests

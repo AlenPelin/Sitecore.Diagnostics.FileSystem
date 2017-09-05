@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.AccessControl;
 
-namespace System.IO.Abstractions
+namespace Sitecore.Diagnostics.FileSystem
 {
+    using System;
+    using System.IO;
+
     [Serializable]
     public class DirectoryInfoWrapper : DirectoryInfoBase
     {
@@ -21,7 +24,7 @@ namespace System.IO.Abstractions
 
         public override IFileSystem FileSystem
         {
-            get { return Abstractions.FileSystem.Instance; }
+            get { return Diagnostics.FileSystem.FileSystem.Instance; }
         }
 
         public override void Delete()

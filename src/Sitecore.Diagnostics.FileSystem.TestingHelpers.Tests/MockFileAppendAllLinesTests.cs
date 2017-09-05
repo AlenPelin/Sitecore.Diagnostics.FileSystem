@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using NUnit.Framework;
-using XFS = System.IO.Abstractions.TestingHelpers.MockUnixSupport;
+using XFS = Sitecore.Diagnostics.FileSystem.TestingHelpers.MockUnixSupport;
 
-namespace System.IO.Abstractions.TestingHelpers.Tests
+namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
+    using System;
+
     public class MockFileAppendAllLinesTests
     {
         [Test]

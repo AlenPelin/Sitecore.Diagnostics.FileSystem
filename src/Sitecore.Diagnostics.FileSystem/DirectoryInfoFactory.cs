@@ -1,5 +1,8 @@
-namespace System.IO.Abstractions
+namespace Sitecore.Diagnostics.FileSystem
 {
+    using System;
+    using System.IO;
+
     [Serializable]
     internal class DirectoryInfoFactory : IDirectoryInfoFactory
     {

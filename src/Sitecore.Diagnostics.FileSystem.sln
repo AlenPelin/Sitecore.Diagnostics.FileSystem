@@ -1,7 +1,6 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5F3BDA62-8052-4C37-97A0-94354AA971B0}"
 	ProjectSection(SolutionItems) = preProject
@@ -9,11 +8,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		StrongName.pfx = StrongName.pfx
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.IO.Abstractions", "System.IO.Abstractions\System.IO.Abstractions.csproj", "{4D398F3A-0784-4401-93CD-46CD2FBD6B92}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Diagnostics.FileSystem", "Sitecore.Diagnostics.FileSystem\Sitecore.Diagnostics.FileSystem.csproj", "{4D398F3A-0784-4401-93CD-46CD2FBD6B92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingHelpers", "TestingHelpers\TestingHelpers.csproj", "{251BD5E5-8133-47A4-AB19-17CF0F43D6AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Diagnostics.FileSystem.TestingHelpers", "Sitecore.Diagnostics.FileSystem.TestingHelpers\Sitecore.Diagnostics.FileSystem.TestingHelpers.csproj", "{251BD5E5-8133-47A4-AB19-17CF0F43D6AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestHelpers.Tests", "TestHelpers.Tests\TestHelpers.Tests.csproj", "{20B02738-952A-40F5-9C10-E2F83013E9FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests", "Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests\Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests.csproj", "{20B02738-952A-40F5-9C10-E2F83013E9FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +35,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC99738A-3727-4551-BC2F-8A2FA79BC2BC}
 	EndGlobalSection
 EndGlobal

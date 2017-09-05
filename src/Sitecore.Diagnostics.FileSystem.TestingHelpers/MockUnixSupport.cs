@@ -1,7 +1,9 @@
-﻿using System.Text.RegularExpressions;
+using System.Text.RegularExpressions;
 
-namespace System.IO.Abstractions.TestingHelpers
+namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 {
+    using System;
+
     internal static class MockUnixSupport
     {
         internal static string Path(string path, Func<bool> isUnixF = null)

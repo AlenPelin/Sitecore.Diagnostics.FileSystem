@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Security.AccessControl;
 
-namespace System.IO.Abstractions
+namespace Sitecore.Diagnostics.FileSystem
 {
+    using System;
+    using System.IO;
+
     [Serializable]
     public abstract class DirectoryBase
     {

@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
-namespace System.IO.Abstractions
+namespace Sitecore.Diagnostics.FileSystem
 {
+    using System;
+    using System.IO;
+
     internal static class Converters
     {
         internal static FileSystemInfoBase[] WrapFileSystemInfos(this IEnumerable<FileSystemInfo> input)
@@ -19,7 +22,7 @@ namespace System.IO.Abstractions
 
                     throw new NotImplementedException(string.Format(
                         CultureInfo.InvariantCulture,
-                        "The type {0} is not recognized by the System.IO.Abstractions library.",
+                        "The type {0} is not recognized by the Sitecore.Diagnostics.FileSystem library.",
                         item.GetType().AssemblyQualifiedName
                     ));
                 })

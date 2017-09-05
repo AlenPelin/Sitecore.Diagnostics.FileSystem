@@ -1,10 +1,10 @@
-namespace System.IO.Abstractions.TestingHelpers.Tests
+namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
-    using Collections.Generic;
-
-    using Globalization;
-
-    using Linq;
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.IO;
+    using System.Linq;
 
     using NUnit.Framework;
 

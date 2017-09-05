@@ -1,5 +1,7 @@
-﻿namespace System.IO.Abstractions
+namespace Sitecore.Diagnostics.FileSystem
 {
+    using System;
+
     [Serializable]
     public abstract class PathBase
     {

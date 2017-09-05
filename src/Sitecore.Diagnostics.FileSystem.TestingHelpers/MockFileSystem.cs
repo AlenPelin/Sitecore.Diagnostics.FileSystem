@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
-namespace System.IO.Abstractions.TestingHelpers
+namespace Sitecore.Diagnostics.FileSystem.TestingHelpers
 {
+    using System;
+    using System.IO;
+
     using XFS = MockUnixSupport;
 
     [Serializable]
@@ -25,7 +28,7 @@ namespace System.IO.Abstractions.TestingHelpers
         public MockFileSystem(IDictionary<string, MockFileData> files, string currentDirectory = "")
         {
             if (string.IsNullOrEmpty(currentDirectory))
-                currentDirectory = IO.Path.GetTempPath();
+                currentDirectory = System.IO.Path.GetTempPath();
 
             pathVerifier = new PathVerifier(this);
 
@@ -172,7 +175,7 @@ namespace System.IO.Abstractions.TestingHelpers
 
                     /*
                      * Although CreateDirectory(@"\\server\share\") is not going to work in real code, we allow it here for the purposes of setting up test doubles.
-                     * See PR https://github.com/tathamoddie/System.IO.Abstractions/pull/90 for conversation
+                     * See PR https://github.com/tathamoddie/Sitecore.Diagnostics.FileSystem/pull/90 for conversation
                      */
                 }
 

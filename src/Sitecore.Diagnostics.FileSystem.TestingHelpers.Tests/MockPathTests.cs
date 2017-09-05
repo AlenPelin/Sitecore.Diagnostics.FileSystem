@@ -1,8 +1,10 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using System.Collections.Generic;
 
-namespace System.IO.Abstractions.TestingHelpers.Tests
+namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
+    using System;
+
     using XFS = MockUnixSupport;
 
     public class MockPathTests

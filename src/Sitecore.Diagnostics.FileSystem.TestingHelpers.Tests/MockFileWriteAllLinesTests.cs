@@ -1,12 +1,15 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using NUnit.Framework;
-using XFS = System.IO.Abstractions.TestingHelpers.MockUnixSupport;
+using XFS = Sitecore.Diagnostics.FileSystem.TestingHelpers.MockUnixSupport;
 
-namespace System.IO.Abstractions.TestingHelpers.Tests
+namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
+    using System;
+    using System.IO;
+
     public class MockFileWriteAllLinesTests
     {
         private class TestDataForWriteAllLines

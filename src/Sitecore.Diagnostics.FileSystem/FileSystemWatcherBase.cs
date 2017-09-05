@@ -1,7 +1,10 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 
-namespace System.IO.Abstractions
+namespace Sitecore.Diagnostics.FileSystem
 {
+    using System;
+    using System.IO;
+
     [Serializable]
     public abstract class FileSystemWatcherBase : IDisposable
     {

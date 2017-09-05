@@ -1,4 +1,4 @@
-﻿namespace System.IO.Abstractions
+namespace Sitecore.Diagnostics.FileSystem
 {
     public interface IFileInfoFactory
     {

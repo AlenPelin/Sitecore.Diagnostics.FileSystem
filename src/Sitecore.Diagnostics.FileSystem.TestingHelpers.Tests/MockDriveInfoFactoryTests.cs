@@ -1,7 +1,7 @@
-﻿using System.Linq;
+using System.Linq;
 using NUnit.Framework;
 
-namespace System.IO.Abstractions.TestingHelpers.Tests
+namespace Sitecore.Diagnostics.FileSystem.TestingHelpers.Tests
 {
     using XFS = MockUnixSupport;
 

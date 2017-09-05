@@ -1,6 +1,8 @@
-﻿namespace System.IO.Abstractions
+namespace Sitecore.Diagnostics.FileSystem
 {
-  public interface IUniqueTempDirectory : IDisposable, IDirectory
+    using System;
+
+    public interface IUniqueTempDirectory : IDisposable, IDirectory
   {    
   }
 }
