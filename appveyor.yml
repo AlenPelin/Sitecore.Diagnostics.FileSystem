@@ -1,13 +1,51 @@
-version: 2.0.0.{build}
+#
+# https://ci.appveyor.com/project/AlenPelin/Sitecore.Diagnostics.FileSystem
+#
 
-pull_requests:
-  do_not_increment_build_number: true
+before_build:
+  - nuget restore "src\Sitecore.Diagnostics.FileSystem.sln"
+
+platform: Any CPU
+configuration: Release
+  
+version: 2.0.0.{build}
 
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
-  assembly_version: '{version}'
-  assembly_file_version: '{version}'
+  assembly_version: "{version}"
+  assembly_file_version: "{version}"
+  assembly_informational_version: "{version}"
 
-before_build:
-- nuget restore
+image:
+- Visual Studio 2017
+
+build:
+  parallel: true                 
+  verbosity: minimal
+
+after_build:
+  - cmd: cd src\Sitecore.Diagnostics.FileSystem\bin\Release
+  - cmd: 7z a Sitecore.Diagnostics.FileSystem.zip ".\*"
+  - cmd: move Sitecore.Diagnostics.FileSystem.zip ..\..\..\..\Sitecore.Diagnostics.FileSystem-%APPVEYOR_BUILD_VERSION%.zip
+  - cmd: cd ..\..\..\..
+  - cmd: cd src\Sitecore.Diagnostics.FileSystem.TestingHelpers\bin\Release
+  - cmd: 7z a Sitecore.Diagnostics.FileSystem.TestingHelpers.zip ".\*"
+  - cmd: move Sitecore.Diagnostics.FileSystem.TestingHelpers.zip ..\..\..\..\Sitecore.Diagnostics.FileSystem.TestingHelpers-%APPVEYOR_BUILD_VERSION%.zip
+  
+artifacts:
+  - path: Sitecore.Diagnostics.FileSystem-*.zip
+    name: Sitecore.Diagnostics.FileSystem
+  - path: Sitecore.Diagnostics.FileSystem.TestingHelpers-*.zip
+    name: Sitecore.Diagnostics.FileSystem.TestingHelpers
+    
+test:
+  assemblies:
+    only:
+      - 'src\**\*.Test*.dll'
+      
+notifications:
+  - provider: Email
+    to:
+      - anp@sitecore.net
+    subject: '[fs] build {{status}}'
